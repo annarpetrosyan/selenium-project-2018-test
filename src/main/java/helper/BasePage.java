@@ -1,7 +1,8 @@
+package helper;
+
+import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
-import org.apache.log4j.lf5.util.StreamUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,9 +13,9 @@ import java.util.Set;
  * Created by anna.r.petrosyan on 1/4/2018.
  */
 public class BasePage implements WebDriver {
-    private WebDriver driver;
-    private JavascriptExecutor jsExecutor;
-    private Logger log;
+    protected WebDriver driver;
+    private JavascriptExecutor js = (JavascriptExecutor) driver;;
+    private Logger log = Logger.getLogger(Log.class.getName());;
     private WebDriverWait wait;
 
 
@@ -31,14 +32,17 @@ public class BasePage implements WebDriver {
      * @param BaseUrl
      */
     public void get(String BaseUrl) {
-    log.info("Cleaning Cookies");
-        driver.manage().deleteAllCookies();
-    log.info("Cleaning local Storage");
-        jsExecutor.executeScript("window.localStorage.clear();");
-    log.info("Maximize window");
-        driver.manage().window().maximize();
     log.info("Get Url");
         driver.get(BaseUrl);
+    log.info("Cleaning Cookies");
+        driver.manage().deleteAllCookies();
+    log.info("Maximize window");
+        driver.manage().window().maximize();
+    log.info("Cleaning local Storage");
+        ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
+//        js.executeScript("window.localStorage.clear();");
+
+
     }
 
     /**
@@ -80,6 +84,8 @@ public class BasePage implements WebDriver {
      * @param value
      */
     public void fill(WebElement webElement, String value){
+    log.info("Clear Content");
+        webElement.clear();
     log.info("Fill method - driver - sendKeys");
        webElement.sendKeys(value);
     }
@@ -168,7 +174,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public boolean isNotDisplayed(WebElement webElement, Integer timeout){
-        log.info("isNotDisplayed method (driver)");
+//        log.info("isNotDisplayed method (driver)");
         try {
             wait = new WebDriverWait(driver, timeout);
             wait.until(ExpectedConditions.invisibilityOf(webElement));
