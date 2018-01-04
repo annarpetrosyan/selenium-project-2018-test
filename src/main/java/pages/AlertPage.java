@@ -1,7 +1,6 @@
 package pages;
 
 import helper.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
@@ -10,6 +9,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class AlertPage extends BasePage {
 
+    private String resultId = "#result";
     //
     /**
      * This is constructor
@@ -30,22 +30,40 @@ public class AlertPage extends BasePage {
     }
 
 
+    /**
+     * Execute alert
+     * @param buttonName
+     */
     public void clickOn(String buttonName){
         switch(buttonName){
-            case "JS Alert":{
-                  findElement(By.xpath("button[contains(text(),'Click for JS Alert'))]"));
+            case "Click for JS Alert":{
+                //
+                ((JavascriptExecutor) driver).executeScript("jsAlert()");
+//                findElement(By.cssSelector("#content > div > ul button"));
+//                  findElement(By.xpath("button[contains(text(),'Click for JS Alert'))]"));
+                break;
             }
-            case "JS Confirm":{
-                click(By.xpath("button[contains(text(),"+buttonName+"))]"));
+            case "Click for JS Confirm":{
+                ((JavascriptExecutor) driver).executeScript("jsConfirm()");
+//                click(By.xpath("button[contains(text(),"+buttonName+"))]"));
+                break;
             }
-            case "JS Prompt":{
-                click(By.xpath("button[contains(text(),"+buttonName+"))]"));
+            case "Click for JS Prompt":{
+                ((JavascriptExecutor) driver).executeScript("jsPrompt()");
+//                click(By.xpath("button[contains(text(),"+buttonName+"))]"));
+                break;
             }
             default:{
                 System.out.println("There is no button with" +buttonName+ " name.");
             }
         }
     }
+
+
+    public String getResult(){
+        return find(resultId).getText();
+    }
+
 
 
 }
