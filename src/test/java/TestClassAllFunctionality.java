@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -75,34 +75,34 @@ public class TestClassAllFunctionality {
 //        alertPage.closeAlert();
 //        assertEquals(alertPage.getResult(), "You successfully clicked an alert");
 //    }
-
-    @Test
-    public void dismissAlertTest(){
-        alertPage = new AlertPage(webDriver);
-        alertPage.clickOn("Click for JS Confirm");
-        webDriver.switchTo().alert().dismiss();
-        assertEquals(alertPage.getResult(), "You clicked: Cancel");
-    }
-
-    @Test
-    public void confirmAlertTest(){
-        alertPage = new AlertPage(webDriver);
-        alertPage.clickOn("Click for JS Confirm");
-        webDriver.switchTo().alert().accept();
-        assertEquals(alertPage.getResult(), "You clicked: Ok");
-    }
 //
-//    /**
-//     * This test for Hover --todo
-//     */
 //    @Test
-//    public void alertTest(){
-//        hoverPage = new HoverPage(webDriver);
-//        assertTrue(hoverPage.isHeaderNotDisplayed(),"Header was not visible!");
-//        hoverPage.hoverToAvatar(1);
-//        assertTrue(hoverPage.isHeaderDisplayed(),"Header was visible!");
-//
+//    public void dismissAlertTest(){
+//        alertPage = new AlertPage(webDriver);
+//        alertPage.clickOn("Click for JS Confirm");
+//        webDriver.switchTo().alert().dismiss();
+//        assertEquals(alertPage.getResult(), "You clicked: Cancel");
 //    }
+//
+//    @Test
+//    public void confirmAlertTest(){
+//        alertPage = new AlertPage(webDriver);
+//        alertPage.clickOn("Click for JS Confirm");
+//        webDriver.switchTo().alert().accept();
+//        assertEquals(alertPage.getResult(), "You clicked: Ok");
+//    }
+
+    /**
+     * This test for Hover --todo
+     */
+    @Test
+    public void hoversTest(){
+        hoverPage = new HoverPage(webDriver);
+        assertTrue(hoverPage.isHeaderNotDisplayed(),"Header was not visible!");
+        hoverPage.hoverAvatar(1);
+        assertTrue(hoverPage.isHeaderDisplayed(),"Header was visible!");
+
+    }
 
 
 

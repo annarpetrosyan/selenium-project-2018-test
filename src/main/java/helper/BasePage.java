@@ -69,6 +69,15 @@ public class BasePage implements WebDriver {
     }
 
     /**
+     * This is General FIND method which work with driver
+     * @param locator
+     */
+    public List<WebElement> findElems(By locator){
+        log.info("Find Element by locator (driver)");
+        return driver.findElements(locator);
+    }
+
+    /**
      * This is overloaded FIND method which work with general find method
      * @param cssSelector
      * @return WebElement
@@ -178,6 +187,17 @@ public class BasePage implements WebDriver {
         try {
             wait = new WebDriverWait(driver, timeout);
             wait.until(ExpectedConditions.invisibilityOf(webElement));
+        }catch (TimeoutException message){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isDisplayed(WebElement webElement, Integer timeout){
+//        log.info("isNotDisplayed method (driver)");
+        try {
+            wait = new WebDriverWait(driver, timeout);
+            wait.until(ExpectedConditions.visibilityOf(webElement));
         }catch (TimeoutException message){
             return false;
         }
