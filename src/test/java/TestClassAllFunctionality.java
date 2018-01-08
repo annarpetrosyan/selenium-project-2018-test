@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -16,6 +16,8 @@ public class TestClassAllFunctionality {
     private HoverPage hoverPage;
     private FramePage framePage;
     private DropDownPage dropDownPage;
+    private NotificationMessagesPage notificationMessagesPage;
+    private StatusCodesPage statusCodesPage;
 
     @BeforeMethod
     public void setUp(){
@@ -91,19 +93,40 @@ public class TestClassAllFunctionality {
 //        webDriver.switchTo().alert().accept();
 //        assertEquals(alertPage.getResult(), "You clicked: Ok");
 //    }
+//
+//    /**
+//     * This test for Hover
+//     */
+//    @Test
+//    public void hoversTest(){
+//        hoverPage = new HoverPage(webDriver);
+//        assertTrue(hoverPage.isHeaderNotDisplayed(),"Header was not visible!");
+//        hoverPage.hoverAvatar(1);
+//        assertTrue(hoverPage.isHeaderDisplayed(),"Header was visible!");
+//
+//    }
+//
+//    /**
+//     * This is test for Notification Messages
+//     */
+//    @Test
+//    public void notificationMessagesTest(){
+//        notificationMessagesPage = new NotificationMessagesPage(webDriver);
+//        notificationMessagesPage.clickOnClickHereLink();
+//        notificationMessagesPage.getCountOfClickForPass();
+//
+//    }
+
 
     /**
-     * This test for Hover --todo
+     * This is test for Status Codes
      */
     @Test
-    public void hoversTest(){
-        hoverPage = new HoverPage(webDriver);
-        assertTrue(hoverPage.isHeaderNotDisplayed(),"Header was not visible!");
-        hoverPage.hoverAvatar(1);
-        assertTrue(hoverPage.isHeaderDisplayed(),"Header was visible!");
-
+    public void statusCodesTest(){
+        statusCodesPage = new StatusCodesPage(webDriver);
+        assertEquals(statusCodesPage.getHeaderText(), "Status Codes", "Different Headers");
+        statusCodesPage.clickOnStatusCode("500");
+        assertEquals(statusCodesPage.getMessageInOpenedPageOfStatus(), "This page returned a 500 status code.", "Different Messages");
     }
-
-
 
 }

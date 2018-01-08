@@ -226,6 +226,35 @@ public class BasePage implements WebDriver {
         return  isNotDisplayed(find(cssSelector), timeout);
     }
 
+    /**
+     * This is General getText method which use driver's method
+     * @param webElement
+     * @return
+     */
+    public String getText(WebElement webElement){
+        log.info("General get method");
+        return  webElement.getText();
+    }
+
+    /**
+     * This is overloaded getText method which work with existing methods
+     * @param locator
+     * @return
+     */
+    public String getText(By locator){
+        log.info("Overloaded get method (locator0");
+        return getText(find(locator));
+    }
+
+    /**
+     *  This is overloaded getText method which work with existing methods
+     * @param cssSelector
+     * @return
+     */
+    public String getText(String cssSelector){
+        log.info("Overloaded get method (locator0");
+        return getText(find(cssSelector));
+    }
 
 
 // ----- Implementation - IN PROGRESS --todo
@@ -274,4 +303,6 @@ public class BasePage implements WebDriver {
     public Options manage() {
         return null;
     }
+
+
 }
