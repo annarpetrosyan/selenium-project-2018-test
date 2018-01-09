@@ -2,7 +2,8 @@ package pages;
 
 import helper.BasePage;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -14,12 +15,14 @@ public class NotificationMessagesPage extends BasePage {
     //
     /**
      * This is constructor
-     *
-     * @param webDriver
      */
-    public NotificationMessagesPage(WebDriver webDriver) {
-        super(webDriver);
-        get("http://the-internet.herokuapp.com/notification_message_rendered");
+    public NotificationMessagesPage() {
+        super(getDriver());
+        get(getUrl());
+    }
+
+    public String getUrl(){
+        return BASE_URL + "/notification_message_rendered";
     }
 
     /**

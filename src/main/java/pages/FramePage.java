@@ -1,8 +1,8 @@
 package pages;
 
 import helper.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -10,16 +10,20 @@ import org.openqa.selenium.WebDriver;
 public class FramePage extends BasePage {
 
     private String frameId = "mce_0_ifr";
-    private String textEditorId = "tinymce";
+    private String textEditorTagName = "body";
+
     //
     /**
      * This is constructor
      *
-     * @param webDriver
      */
-    public FramePage(WebDriver webDriver) {
-        super(webDriver);
-        get("http://the-internet.herokuapp.com/tinymce");
+    public FramePage() {
+        super(getDriver());
+        get(getUrl());
+    }
+
+    public String getUrl(){
+        return BASE_URL + "/tinymce";
     }
 
     /**
@@ -30,7 +34,8 @@ public class FramePage extends BasePage {
     }
 
     public void fillTextInTextEditor(String text){
-        findElement(By.tagName("body")).sendKeys(text);
+        find(textEditorTagName).clear();
+        find(textEditorTagName).sendKeys(text);
     }
 
 

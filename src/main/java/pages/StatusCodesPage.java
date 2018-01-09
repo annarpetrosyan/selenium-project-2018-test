@@ -2,10 +2,11 @@ package pages;
 
 import helper.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -20,11 +21,15 @@ public class StatusCodesPage extends BasePage {
     /**
      * This is constructor
      *
-     * @param webDriver
+     *
      */
-    public StatusCodesPage(WebDriver webDriver) {
-        super(webDriver);
-        get("http://the-internet.herokuapp.com/status_codes");
+    public StatusCodesPage() {
+        super(getDriver());
+        get(getUrl());
+    }
+
+    public String getUrl(){
+        return BASE_URL + "/status_codes";
     }
 
     /**

@@ -1,7 +1,8 @@
 package pages;
 
 import helper.BasePage;
-import org.openqa.selenium.WebDriver;
+
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -12,13 +13,15 @@ public class MultiWindowPage extends BasePage {
     /**
      * This is constructor
      *
-     * @param webDriver
+     *
      */
-    public MultiWindowPage(WebDriver webDriver) {
-        super(webDriver);
-        get("http://the-internet.herokuapp.com/windows");
+    public MultiWindowPage( ) {
+       super(getDriver());
+        get(getUrl());
     }
-
+    public String getUrl(){
+        return BASE_URL + "/windows";
+    }
     /**
      * Click on Click here link
      */
@@ -41,5 +44,7 @@ public class MultiWindowPage extends BasePage {
     public void switchToWindow(int index){
         driver.switchTo().window(getAllWindows()[index].toString());
     }
+
+
 
 }

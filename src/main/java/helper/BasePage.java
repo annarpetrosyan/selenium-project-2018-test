@@ -19,6 +19,9 @@ public class BasePage implements WebDriver {
     private WebDriverWait wait;
 
 
+    public static final String BASE_URL =
+            System.getProperty("selenium.url", "http://the-internet.herokuapp.com");
+
     /**
      * This is constructor
      * @param webDriver

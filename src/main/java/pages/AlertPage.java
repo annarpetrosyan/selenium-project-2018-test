@@ -2,7 +2,8 @@ package pages;
 
 import helper.BasePage;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -10,17 +11,16 @@ import org.openqa.selenium.WebDriver;
 public class AlertPage extends BasePage {
 
     private String resultId = "#result";
-    //
-    /**
-     * This is constructor
-     *
-     * @param webDriver
-     */
-    public AlertPage(WebDriver webDriver) {
-        super(webDriver);
-        get("http://the-internet.herokuapp.com/javascript_alerts");
+
+
+    public AlertPage() {
+        super(getDriver());
+        get(getUrl());
     }
 
+    public String getUrl(){
+        return BASE_URL + "/javascript_alerts";
+    }
     public void createTempAlert(String message){
         ((JavascriptExecutor) driver).executeScript("alert('"+message+"');");
     }
@@ -64,6 +64,13 @@ public class AlertPage extends BasePage {
         return find(resultId).getText();
     }
 
+    public void dismissAlert(){
+        driver.switchTo().alert().dismiss();
+    }
+
+    public void confirmAlert(){
+        driver.switchTo().alert().accept();
+    }
 
 
 }

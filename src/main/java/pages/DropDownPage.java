@@ -2,10 +2,12 @@ package pages;
 
 import helper.BasePage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -13,14 +15,15 @@ import java.util.List;
 public class DropDownPage extends BasePage {
     private  String dropdownId = "dropdown";
 
-    /**
-     * This is constructor
-     *
-     * @param webDriver
-     */
-    public DropDownPage(WebDriver webDriver) {
-        super(webDriver);
-        get("http://the-internet.herokuapp.com/dropdown");
+
+
+    public DropDownPage() {
+        super(getDriver());
+        get(getUrl());
+    }
+
+    public String getUrl() {
+        return BASE_URL + "/dropdown";
     }
 
     /**
@@ -60,6 +63,13 @@ public class DropDownPage extends BasePage {
             }
         }
         return null;
+    }
+
+    public void forceAlert() {
+        ((JavascriptExecutor) driver).executeScript("alert('Hello! I am an alert box!!');");
+    }
+    public void closeAlert() {
+        driver.switchTo().alert().accept();
     }
 
 
