@@ -34,8 +34,6 @@ public class DragDropPage extends BasePage {
         }else if(elem1=="B" && elem2=="A"){
             actions.dragAndDrop(webElementB,webElementA);
         }
-
     }
-
 
 }
