@@ -1,8 +1,9 @@
 package helper;
 
-import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,7 +16,8 @@ import java.util.Set;
 public class BasePage implements WebDriver {
     protected WebDriver driver;
     private JavascriptExecutor js = (JavascriptExecutor) driver;;
-    private Logger log = Logger.getLogger(Log.class.getName());;
+//    private Logger logger = Logger.getLogger(BasePage.class);
+    org.apache.log4j.Logger logger = Logger.getLogger("log4j.properties");
     private WebDriverWait wait;
 
 
@@ -35,13 +37,13 @@ public class BasePage implements WebDriver {
      * @param BaseUrl
      */
     public void get(String BaseUrl) {
-    log.info("Get Url");
+    logger.info("Get Url");
         driver.get(BaseUrl);
-    log.info("Cleaning Cookies");
+    logger.info("Cleaning Cookies");
         driver.manage().deleteAllCookies();
-    log.info("Maximize window");
+    logger.info("Maximize window");
         driver.manage().window().maximize();
-    log.info("Cleaning local Storage");
+    logger.info("Cleaning local Storage");
         ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
 //        js.executeScript("window.localStorage.clear();");
 
@@ -52,14 +54,14 @@ public class BasePage implements WebDriver {
      * Close driver
      */
     public void close() {
-    log.info("Close driver");
+    logger.info("Close driver");
     }
 
     /**
      * Quit driver
      */
     public void quit() {
-        log.info("Quit driver");
+        logger.info("Quit driver");
     }
 
     /**
@@ -67,7 +69,7 @@ public class BasePage implements WebDriver {
      * @param locator
      */
     public WebElement find(By locator){
-    log.info("Find Element by locator (driver)");
+    logger.info("Find Element by locator (driver)");
         return driver.findElement(locator);
     }
 
@@ -76,7 +78,7 @@ public class BasePage implements WebDriver {
      * @param locator
      */
     public List<WebElement> findElems(By locator){
-        log.info("Find Element by locator (driver)");
+        logger.info("Find Element by locator (driver)");
         return driver.findElements(locator);
     }
 
@@ -86,7 +88,7 @@ public class BasePage implements WebDriver {
      * @return WebElement
      */
     public WebElement find(String cssSelector){
-    log.info("Find Element by cssSelector");
+    logger.info("Find Element by cssSelector");
         return find(By.cssSelector(cssSelector));
     }
 
@@ -96,9 +98,9 @@ public class BasePage implements WebDriver {
      * @param value
      */
     public void fill(WebElement webElement, String value){
-    log.info("Clear Content");
+    logger.info("Clear Content");
         webElement.clear();
-    log.info("Fill method - driver - sendKeys");
+    logger.info("Fill method - driver - sendKeys");
        webElement.sendKeys(value);
     }
 
@@ -108,12 +110,12 @@ public class BasePage implements WebDriver {
      * @param value
      */
     public void fill(By locator, String value){
-    log.info("Overloaded fill method (locator)");
+    logger.info("Overloaded fill method (locator)");
        fill(find(locator), value);
     }
 
     public void fill(String cssSelector, String value){
-    log.info("Overloaded fill method (cssSelector)");
+    logger.info("Overloaded fill method (cssSelector)");
         fill(find(cssSelector), value);
     }
 
@@ -122,7 +124,7 @@ public class BasePage implements WebDriver {
      * @param webElement
      */
     public void click(WebElement webElement){
-    log.info("Click method(driver)");
+    logger.info("Click method(driver)");
         webElement.click();
     }
 
@@ -131,7 +133,7 @@ public class BasePage implements WebDriver {
      * @param locator
      */
     public void click(By locator){
-    log.info("Overloaded click method(by locator)");
+    logger.info("Overloaded click method(by locator)");
         click(find(locator));
     }
 
@@ -140,7 +142,7 @@ public class BasePage implements WebDriver {
      * @param cssSelector
      */
     public void click(String cssSelector){
-    log.info("Overloaded click method(cssSelector)");
+    logger.info("Overloaded click method(cssSelector)");
         click(find(cssSelector));
     }
 
@@ -150,7 +152,7 @@ public class BasePage implements WebDriver {
      * @return true or false
      */
     public boolean isDisplayed(WebElement webElement){
-    log.info("isDisplayed method (driver)");
+    logger.info("isDisplayed method (driver)");
        try {
            return webElement.isDisplayed();
        }catch (NoSuchElementException message){
@@ -164,7 +166,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public boolean isDisplayed(By locator){
-    log.info("Overloaded isDisplayed method (locator)");
+    logger.info("Overloaded isDisplayed method (locator)");
         return isDisplayed(find(locator));
     }
 
@@ -174,7 +176,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public boolean isDisplayed(String cssSelector){
-        log.info("Overloaded isDisplayed method (cssSelector)");
+        logger.info("Overloaded isDisplayed method (cssSelector)");
         return isDisplayed(find(cssSelector));
     }
 
@@ -186,7 +188,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public boolean isNotDisplayed(WebElement webElement, Integer timeout){
-//        log.info("isNotDisplayed method (driver)");
+//        logger.info("isNotDisplayed method (driver)");
         try {
             wait = new WebDriverWait(driver, timeout);
             wait.until(ExpectedConditions.invisibilityOf(webElement));
@@ -197,7 +199,7 @@ public class BasePage implements WebDriver {
     }
 
     public boolean isDisplayed(WebElement webElement, Integer timeout){
-//        log.info("isNotDisplayed method (driver)");
+//        logger.info("isNotDisplayed method (driver)");
         try {
             wait = new WebDriverWait(driver, timeout);
             wait.until(ExpectedConditions.visibilityOf(webElement));
@@ -214,7 +216,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public boolean isNotDisplayed(By locator, Integer timeout){
-        log.info("Overloaded isNotDisplayed method (locator)");
+        logger.info("Overloaded isNotDisplayed method (locator)");
         return  isNotDisplayed(find(locator), timeout);
     }
 
@@ -225,7 +227,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public boolean isNotDisplayed(String cssSelector, Integer timeout){
-        log.info("Overloaded isNotDisplayed method (cssSelector)");
+        logger.info("Overloaded isNotDisplayed method (cssSelector)");
         return  isNotDisplayed(find(cssSelector), timeout);
     }
 
@@ -235,7 +237,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public String getText(WebElement webElement){
-        log.info("General get method");
+        logger.info("General get method");
         return  webElement.getText();
     }
 
@@ -245,7 +247,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public String getText(By locator){
-        log.info("Overloaded get method (locator0");
+        logger.info("Overloaded get method (locator0");
         return getText(find(locator));
     }
 
@@ -255,7 +257,7 @@ public class BasePage implements WebDriver {
      * @return
      */
     public String getText(String cssSelector){
-        log.info("Overloaded get method (locator0");
+        logger.info("Overloaded get method (locator0");
         return getText(find(cssSelector));
     }
 
@@ -266,8 +268,14 @@ public class BasePage implements WebDriver {
      * @return current url
      */
     public String getCurrentUrl() {
-    log.info("Get current URl");
+    logger.info("Get current URl");
         return driver.getCurrentUrl();
+    }
+
+    public void dragAndDrop(WebElement webElement1, WebElement webElement2){
+        Actions actions = new Actions(driver);
+        Action dragAndDrop = actions.clickAndHold(webElement1).moveToElement(webElement2).release(webElement2).build();
+        dragAndDrop.perform();
     }
 
     public String getTitle() {
