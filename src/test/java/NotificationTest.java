@@ -16,7 +16,7 @@ public class NotificationTest extends BaseTest {
      * This is test for Status Codes
      */
     @Test
-    public void statusCodesTest(){
+    public void notificationPageTest(){
         notificationMessagesPage.clickOnClickHereLink();
         notificationMessagesPage.getCountOfClickForPass();
     }

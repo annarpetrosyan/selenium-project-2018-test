@@ -17,7 +17,7 @@ public class DriverSetup {
                             "C:\\Windows\\chromedriver.exe");
                     System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
                     driver = new ChromeDriver();
-                    driver.manage().window().fullscreen();
+                    driver.manage().window().maximize();
                     break;
 
                 case "firefox":
@@ -25,7 +25,7 @@ public class DriverSetup {
                             "C:\\Windows\\chromedriver.exe");
                     System.setProperty("webdriver.gecko.driver", firefoxDriverLocation);
                     driver = new FirefoxDriver();
-                    driver.manage().window().fullscreen();
+                    driver.manage().window().maximize();
                     break;
             }
         }

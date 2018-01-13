@@ -1,28 +1,32 @@
 package pages;
 
 import helper.BasePage;
+import org.apache.commons.logging.Log;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-
-import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
  */
 public class DropDownPage extends BasePage {
-    private  String dropdownId = "dropdown";
+    @FindBy(id = "dropdown")
+    private WebElement dropdownId;
 
+    Logger logger = Logger.getLogger(Log.class.getName());
 
 
     public DropDownPage() {
-        super(getDriver());
+        logger.info("Get Url");
         get(getUrl());
     }
 
     public String getUrl() {
+        logger.info("generate URL");
         return BASE_URL + "/dropdown";
     }
 
@@ -31,7 +35,8 @@ public class DropDownPage extends BasePage {
      * @return
      */
     public WebElement getDropDown(){
-        return find(By.id(dropdownId));
+        logger.info("Get Dropdown");
+        return dropdownId;
     }
 
     /**
@@ -39,6 +44,7 @@ public class DropDownPage extends BasePage {
      * @return
      */
     public List<WebElement> getElements(){
+        logger.info("Find elements of select and keep it in List");
         return getDropDown().findElements(By.tagName("option"));
     }
 
@@ -47,6 +53,7 @@ public class DropDownPage extends BasePage {
      * @param value
      */
     public void selectValue(String value){
+        logger.info("Select drop down value. Value = " + value);
         List<WebElement> elements = getElements();
         for(WebElement element:elements){
             if(element.getText().equals(value)){
@@ -56,6 +63,7 @@ public class DropDownPage extends BasePage {
     }
 
     public String getSelectedValue(){
+        logger.info("Get text for selected value of drop down");
         List<WebElement> elements = getElements();
         for(WebElement element:elements){
             if(element.isSelected()){
@@ -66,9 +74,12 @@ public class DropDownPage extends BasePage {
     }
 
     public void forceAlert() {
+        logger.info("Generate alert by executing js script");
         ((JavascriptExecutor) driver).executeScript("alert('Hello! I am an alert box!!');");
     }
+
     public void closeAlert() {
+        logger.info("Generate alert, Accept it");
         driver.switchTo().alert().accept();
     }
 

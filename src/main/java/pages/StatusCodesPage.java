@@ -1,20 +1,29 @@
 package pages;
 
 import helper.BasePage;
+import org.apache.commons.logging.Log;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-
-import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
  */
 public class StatusCodesPage extends BasePage {
+    Logger logger = Logger.getLogger(Log.class.getName());
 
-    private String statusCodeHeaderSelector = "#content div h3";
+    @FindBy(css = "#content div h3")
+    private WebElement statusCodeHeaderSelector;
+
+//    @FindBy(css = ".example")
+//    private String statusCodeSelector;
     private String statusCodeSelector = ".example";
+
+//    @FindBy(css = "#content div p")
+//    private String statusCodeMessageInOpenedPage;
     private String statusCodeMessageInOpenedPage = "#content div p";
 
     //
@@ -24,19 +33,21 @@ public class StatusCodesPage extends BasePage {
      *
      */
     public StatusCodesPage() {
-        super(getDriver());
+        logger.info("Constructor");
         get(getUrl());
     }
 
     public String getUrl(){
+        logger.info("Generate URL");
         return BASE_URL + "/status_codes";
     }
 
     /**
-     * This method get text of Header in Statis Code
+     * This method get text of Header in Status Code
      * @return
      */
     public String getHeaderText() {
+        logger.info("Get text of Header");
         return getText(statusCodeHeaderSelector);
     }
 
@@ -45,7 +56,8 @@ public class StatusCodesPage extends BasePage {
      * @return
      */
     public WebElement getCodes(){
-        return find(statusCodeSelector);
+        logger.info("Get Code");
+        return find(By.cssSelector(statusCodeSelector));
     }
 
     /**
@@ -53,6 +65,7 @@ public class StatusCodesPage extends BasePage {
      * @return
      */
     public List<WebElement> getElements(){
+        logger.info("Add codes in array");
         return getCodes().findElements(By.tagName("a"));
     }
 
@@ -61,6 +74,7 @@ public class StatusCodesPage extends BasePage {
      * @param value
      */
     public void clickOnStatusCode(String value){
+        logger.info("Click on Code by value. Value = " + value);
         List<WebElement> elements = getElements();
         for(WebElement element:elements){
             if(element.getText().equals(value)){
@@ -74,6 +88,7 @@ public class StatusCodesPage extends BasePage {
      * @return
      */
     public String getMessageInOpenedPageOfStatus() {
+        logger.info("Get message of Code");
         return getText(statusCodeMessageInOpenedPage);
     }
 }

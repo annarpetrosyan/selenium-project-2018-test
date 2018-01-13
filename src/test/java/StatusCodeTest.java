@@ -15,7 +15,6 @@ public class StatusCodeTest extends BaseTest {
 
     }
 
-
     /**
      * This is test for Status Codes
      */

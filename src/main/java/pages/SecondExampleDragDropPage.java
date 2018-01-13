@@ -1,39 +1,44 @@
 package pages;
 
 import helper.BasePage;
+import org.apache.commons.logging.Log;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
-
-import static setup.DriverSetup.getDriver;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
  */
 public class SecondExampleDragDropPage extends BasePage {
-       private String elementASelector = "div#draggable";
-       private String elementBSelector = "div#droppable";
-       private String invalidDroppableSelector = "body";
+
+    Logger logger = Logger.getLogger(Log.class.getName());
+
+    @FindBy(css = "div#draggable")
+    private WebElement elementASelector;
+
+    @FindBy(css = "div#droppable")
+    private WebElement elementBSelector;
+
+    @FindBy(css = "body")
+    private WebElement invalidDroppableSelector;
 
     public SecondExampleDragDropPage() {
-        super(getDriver());
+        logger.info("Constructor");
         get(getUrl());
     }
 
     public String getUrl() {
+        logger.info("Get URL");
         return "http://jqueryui.com/resources/demos/droppable/default.html";
     }
 
-    public void dragAndDropSecondExample(String elem1, String elem2){
-        WebElement elementA = find(elementASelector);
-        WebElement elementB = find(elementBSelector);
-        WebElement invalidElement = find(invalidDroppableSelector);
-        if(elementA.getText().equals(elem1) && elementB.getText().equals(elem2)){
-            dragAndDrop(elementA, elementB);
-        }else {
-            dragAndDrop(elementB,invalidElement);
-        }
+    public void dragAndDropSecondExample(){
+        logger.info("Drag and drop");
+            dragAndDrop(elementASelector, elementBSelector);
     }
 
     public String getDroppableText(){
+        logger.info("Get text after drag and drop");
         return getText(elementBSelector);
     }
 

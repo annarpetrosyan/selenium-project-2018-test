@@ -16,8 +16,8 @@ public class DragDropTest extends BaseTest {
 
     @Test
     public void setDragDropTest(){
-        dragDropPage.dragAndDrop("A", "B");
-        dragDropPage.dragAndDrop("B", "A");
+        dragDropPage.dragAndDrop();
+        dragDropPage.dragAndDrop();
     }
 
     @AfterMethod

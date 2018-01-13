@@ -10,15 +10,12 @@ public class FramePageTest extends BaseTest {
     @BeforeMethod
     public void setUp() {
         framePage = new FramePage();
-
     }
-
-
     /**
      * This is test for Status Codes
      */
     @Test
-    public void statusCodesTest(){
+    public void framePageTest(){
         framePage.changeFrame();
         framePage.fillTextInTextEditor("This is text");
     }

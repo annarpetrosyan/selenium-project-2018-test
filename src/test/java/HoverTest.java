@@ -23,7 +23,7 @@ public class HoverTest extends BaseTest {
     }
 
     @Test
-    public void dropdownSelect() {
+    public void hoverPageTest() {
        assertTrue(hoverPage.isHeaderNotDisplayed(),"Header was not visible!");
         hoverPage.hoverAvatar(1);
         assertTrue(hoverPage.isHeaderDisplayed(),"Header was visible!");

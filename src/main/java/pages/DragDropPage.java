@@ -1,35 +1,38 @@
 package pages;
 
 import helper.BasePage;
+import org.apache.commons.logging.Log;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
-
-import static setup.DriverSetup.getDriver;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
  */
 public class DragDropPage extends BasePage {
-       private String webElementASelector = "div #column-a";
-       private String webElementBSelector = "div #column-b";
+    Logger logger = Logger.getLogger(Log.class.getName());
+
+    @FindBy(css = "div #column-a")
+    private WebElement webElementASelector;
+
+    @FindBy(css = "div #column-b")
+    private WebElement webElementBSelector;
 
     public DragDropPage() {
-        super(getDriver());
+        logger.info("Constructor of DragANDDrop class");
         get(getUrl());
     }
 
     public String getUrl() {
+        logger.info("Get Url");
         return BASE_URL + "/drag_and_drop";
     }
 
 
-    public void dragAndDrop(String elem1, String elem2){
-        WebElement webElementA = find(webElementASelector);
-        WebElement webElementB = find(webElementBSelector);
-       if(elem1=="A" && elem2=="B"){
-           dragAndDrop(webElementA, webElementB);
-        }else if(elem1=="B" && elem2=="A"){
-           dragAndDrop(webElementB,webElementA);
-        }
+    public void dragAndDrop(){
+          logger.info("Drag A to B");
+           dragAndDrop(webElementASelector, webElementBSelector);
+
     }
 
 }

@@ -1,14 +1,17 @@
 package helper;
 
+import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
 import java.util.Set;
+
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -16,8 +19,7 @@ import java.util.Set;
 public class BasePage implements WebDriver {
     protected WebDriver driver;
     private JavascriptExecutor js = (JavascriptExecutor) driver;;
-//    private Logger logger = Logger.getLogger(BasePage.class);
-    org.apache.log4j.Logger logger = Logger.getLogger("log4j.properties");
+    Logger logger = Logger.getLogger(Log.class.getName());
     private WebDriverWait wait;
 
 
@@ -26,10 +28,11 @@ public class BasePage implements WebDriver {
 
     /**
      * This is constructor
-     * @param webDriver
+     *
      */
-    public BasePage(WebDriver webDriver){
-        this.driver=webDriver;
+    public BasePage(){
+        driver = getDriver();
+        PageFactory.initElements(driver,this);
      }
 
     /**
@@ -81,6 +84,7 @@ public class BasePage implements WebDriver {
         logger.info("Find Element by locator (driver)");
         return driver.findElements(locator);
     }
+
 
     /**
      * This is overloaded FIND method which work with general find method
@@ -314,6 +318,7 @@ public class BasePage implements WebDriver {
     public Options manage() {
         return null;
     }
+
 
 
 }
