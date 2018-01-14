@@ -16,7 +16,7 @@ import static setup.DriverSetup.getDriver;
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
  */
-public class BasePage implements WebDriver {
+public abstract class BasePage<T> implements WebDriver {
     protected WebDriver driver;
     private JavascriptExecutor js = (JavascriptExecutor) driver;;
     Logger logger = Logger.getLogger(Log.class.getName());
@@ -25,6 +25,8 @@ public class BasePage implements WebDriver {
 
     public static final String BASE_URL =
             System.getProperty("selenium.url", "http://the-internet.herokuapp.com");
+
+    public abstract String getUrl();
 
     /**
      * This is constructor
