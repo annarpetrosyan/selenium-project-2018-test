@@ -33,8 +33,8 @@ public abstract class BasePage<T> implements WebDriver {
      *
      */
     public BasePage(){
-        driver = getDriver();
-        PageFactory.initElements(driver,this);
+            driver = getDriver();
+            PageFactory.initElements(driver,this);
      }
 
     /**
@@ -51,10 +51,94 @@ public abstract class BasePage<T> implements WebDriver {
     logger.info("Cleaning local Storage");
         ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
 //        js.executeScript("window.localStorage.clear();");
-
-
     }
 
+
+    /** -------------------------------
+     * Get ul Element for List
+     * @param indexNumber
+     *  --Todo uzum em mi hat element tam, vor yndhanracvac lini
+     * @return
+     */
+    public WebElement getLiForUlByIndex(int indexNumber){
+        WebElement uLElement = find(By.tagName("ul"));
+        List<WebElement> liElement = uLElement.findElements(By.tagName("li"));
+         int listSize = liElement.size();
+        for(int i=0; i < listSize; i++){
+            if(i == indexNumber-1){
+                return liElement.get(i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Get column webElement by provided row and cell index
+     * @param tableElement
+     *      WebElement of table
+     * @param rowNumber
+     *        row Number
+     * @param cellNumber
+     *         cell Number
+     * @return
+     *      Web element of column
+     */
+    public WebElement getTableColumnElementByRowNumberCellNumber(WebElement tableElement, int rowNumber, int cellNumber){
+        WebElement table = tableElement.findElement(By.tagName("tbody"));
+        List<WebElement> rows = table.findElements(By.tagName("tr"));
+        List<WebElement> cells = rows.get(rowNumber-1).findElements(By.tagName("td"));
+        return cells.get(cellNumber-1);
+    }
+
+    /**
+     * This method click on table header by provided rowNumber and cellNumber (th)
+     * @param tableElement
+     *      WebElement of table
+     * @param rowThNumber
+     *        row th Number
+     * @param cellThNumber
+     *         cell th Number
+     */
+    public void clickOnTableHeaderByWebElementRowNumberColumnNumber(WebElement tableElement, int rowThNumber, int cellThNumber){
+        WebElement table = tableElement.findElement(By.tagName("thead"));
+        List<WebElement> rows = table.findElements(By.tagName("tr"));
+        List<WebElement> cells = rows.get(rowThNumber-1).findElements(By.tagName("th"));
+        cells.get(cellThNumber-1).click();
+    }
+
+    /**
+     * Get web Element of checkbox
+     * @param webElement
+     *      Web element of checkbox form (e.g. form, div)
+     * @param indexNumber
+     *      number of index
+     * @return
+     *      web element for provided index
+     */
+    public WebElement getCheckBoxElementByIndex(WebElement webElement, int indexNumber){
+        List<WebElement> checkboxes = webElement.findElements(By.tagName("input"));
+        return checkboxes.get(indexNumber-1);
+    }
+
+    public boolean getAttributeOfCheckbox(WebElement webElement, int indexNumber){
+        WebElement element = getCheckBoxElementByIndex(webElement, indexNumber);
+        return Boolean.parseBoolean(element.getAttribute("checked"));
+    }
+
+    public void uncheckCheckboxElementByIndex(WebElement webElement, int indexNumber){
+        if(getAttributeOfCheckbox(webElement, indexNumber)){
+            click(getCheckBoxElementByIndex(webElement,indexNumber));
+        }
+    }
+
+
+    public void checkCheckboxElementByIndex(WebElement webElement, int indexNumber){
+        if(!getAttributeOfCheckbox(webElement, indexNumber)){
+            click(getCheckBoxElementByIndex(webElement,indexNumber));
+        }
+    }
+
+    //  ---------------------------------------
     /**
      * Close driver
      */
