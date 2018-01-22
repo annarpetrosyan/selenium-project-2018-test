@@ -58,10 +58,12 @@ public abstract class BasePage<T> implements WebDriver {
      * Get ul Element for List
      * @param indexNumber
      *  --Todo uzum em mi hat element tam, vor yndhanracvac lini
-     * @return
+     * @return // add web element
+     * and check element.findElements ()
+     * WebElement element
      */
-    public WebElement getLiForUlByIndex(int indexNumber){
-        WebElement uLElement = find(By.tagName("ul"));
+    public WebElement getLiForUlByIndex( int indexNumber){
+       WebElement uLElement = find(By.tagName("ul"));
         List<WebElement> liElement = uLElement.findElements(By.tagName("li"));
          int listSize = liElement.size();
         for(int i=0; i < listSize; i++){

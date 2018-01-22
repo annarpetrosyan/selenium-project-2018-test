@@ -18,7 +18,7 @@ public class DragDropTest2 extends BaseTest {
     @Test
     public void setDragDropTest() {
           secondExampleDragDropPage.dragAndDropSecondExample();
-          assertTrue(secondExampleDragDropPage.getDroppableText().contains("Dropped!"),"Assertion error!");
+          assertTrue(secondExampleDragDropPage.getDroppableText().contains("Dropped!1"),"Assertion error!");
  }
 
     @AfterMethod

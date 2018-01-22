@@ -11,7 +11,6 @@ public class FloatingMenuPage extends BasePage {
     @FindBy(id = "menu")
     private WebElement menuSelector;
 
-// --TODO what else we can do on this page???
     public FloatingMenuPage(){
         get(getUrl());
     }
