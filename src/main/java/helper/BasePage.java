@@ -76,7 +76,7 @@ public abstract class BasePage<T> implements WebDriver {
 
     /**
      * Get column webElement by provided row and cell index
-     * @param tableElement
+     * @param tableElement 1
      *      WebElement of table
      * @param rowNumber
      *        row Number
