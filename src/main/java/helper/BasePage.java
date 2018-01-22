@@ -76,14 +76,14 @@ public abstract class BasePage<T> implements WebDriver {
 
     /**
      * Get column webElement by provided row and cell index
-     * @param tableElement
+     * @param tableElement 1
      *      WebElement of table
      * @param rowNumber
      *        row Number
      * @param cellNumber
      *         cell Number
      * @return
-     *      Web element of column
+     *      Web element of column This is changes for branch
      */
     public WebElement getTableColumnElementByRowNumberCellNumber(WebElement tableElement, int rowNumber, int cellNumber){
         WebElement table = tableElement.findElement(By.tagName("tbody"));
