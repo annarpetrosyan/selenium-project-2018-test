@@ -16,13 +16,29 @@ public class FileUploadPage extends BasePage {
 
     private static final String browsFilePath = "C:\\test\\";
 
-// TODO take as value null
+
     @FindBy(id = "file-upload")
-    private String inputUploadSelector;
+    private WebElement inputUploadSelector;
+
+    @FindBy(id = "file-submit")
+    private WebElement fileSubmitButton;
+
+    @FindBy(id = "uploaded-files")
+    private WebElement uploadedFiles;
 
     public FileUploadPage(){
         logger.info("Get URL of Page");
         get(getUrl());
+    }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
     }
 
     @Override
@@ -32,11 +48,16 @@ public class FileUploadPage extends BasePage {
     }
 
 
-    public void attachFileInPage(String fileName) throws InterruptedException {
-        WebElement attachment = findElement(By.id(inputUploadSelector));
-        attachment.sendKeys(browsFilePath + fileName);
-        Thread.sleep(2000);
+    public void attachFileInPage(String path) {
+        fill(inputUploadSelector, path);
     }
 
 
+    public void clickOnSubmit(){
+        click(fileSubmitButton);
+    }
+
+    public String getUpladedFiles(){
+        return getText(uploadedFiles);
+    }
 }
