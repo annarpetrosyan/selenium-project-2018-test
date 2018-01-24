@@ -27,6 +27,16 @@ public class SecondExampleDragDropPage extends BasePage {
         get(getUrl());
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(elementASelector);
+    }
+
     public String getUrl() {
         logger.info("Get URL");
         return "http://jqueryui.com/resources/demos/droppable/default.html";

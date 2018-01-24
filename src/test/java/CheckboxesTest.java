@@ -24,8 +24,9 @@ public class CheckboxesTest extends BaseTest {
 
     @Test
     public void checkboxPageTest(){
-        checkboxPage.checOnCheckboxByIndex(1);
-        assertTrue(checkboxPage.isCheckedCheckboxByIndex(1), "N/A");
-        checkboxPage.uncheckCheckboxByIndex(2);
+        checkboxPage.clickOnCheckboxx("checkbox 1");
+//        checkboxPage.checkOnCheckboxByIndex(1);
+//        assertTrue(checkboxPage.isCheckedCheckboxByIndex(1), "N/A");
+//        checkboxPage.uncheckCheckboxByIndex(2);
     }
 }
