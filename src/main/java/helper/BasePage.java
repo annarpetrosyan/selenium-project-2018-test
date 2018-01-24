@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.Set;
@@ -16,12 +17,29 @@ import static setup.DriverSetup.getDriver;
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
  */
-public abstract class BasePage<T> implements WebDriver {
+public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> implements WebDriver {
     protected WebDriver driver;
     private JavascriptExecutor js = (JavascriptExecutor) driver;;
     Logger logger = Logger.getLogger(Log.class.getName());
     private WebDriverWait wait;
 
+
+
+    public WebElement waitForElement(WebElement webElement){
+      WebDriverWait wait=  new WebDriverWait(driver, 10);
+          return wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+    driver.getCurrentUrl().contains(getUrl());
+    }
 
     public static final String BASE_URL =
             System.getProperty("selenium.url", "http://the-internet.herokuapp.com");
@@ -51,6 +69,8 @@ public abstract class BasePage<T> implements WebDriver {
     logger.info("Cleaning local Storage");
         ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
 //        js.executeScript("window.localStorage.clear();");
+        this.get();
+
     }
 
 
