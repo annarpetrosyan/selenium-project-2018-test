@@ -20,6 +20,16 @@ public class FloatingMenuPage extends BasePage {
         return BASE_URL + "/floating_menu";
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(menuSelector);
+    }
+
 
     public void selectMenuByName(String tabName){
         switch (tabName){

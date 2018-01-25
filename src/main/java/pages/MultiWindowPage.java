@@ -28,6 +28,17 @@ public class MultiWindowPage extends BasePage {
         logger.info("Generate URL. Contact to BaseURl");
         return BASE_URL + "/windows";
     }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(hrefcssSelector);
+    }
+
     /**
      * Click on Click here link
      */

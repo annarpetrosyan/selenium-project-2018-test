@@ -24,6 +24,18 @@ public class DataTablesPage extends BasePage {
      get(getUrl());
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(table1Selector);
+        waitForElement(table2Selector);
+
+    }
+
 
     @Override
     public String getUrl() {

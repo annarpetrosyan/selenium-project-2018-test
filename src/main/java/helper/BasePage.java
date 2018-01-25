@@ -20,7 +20,7 @@ import static setup.DriverSetup.getDriver;
 public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> implements WebDriver {
     protected WebDriver driver;
     private JavascriptExecutor js = (JavascriptExecutor) driver;;
-    Logger logger = Logger.getLogger(Log.class.getName());
+    public Logger logger = Logger.getLogger(Log.class.getName());
     private WebDriverWait wait;
 
 

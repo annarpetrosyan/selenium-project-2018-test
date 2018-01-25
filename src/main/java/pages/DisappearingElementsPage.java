@@ -23,6 +23,16 @@ public class DisappearingElementsPage extends BasePage {
     }
 
     @Override
+    protected void load() {
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(menuListSelector);
+    }
+
+
+    @Override
     public String getUrl() {
         return BASE_URL + "/disappearing_elements";
     }

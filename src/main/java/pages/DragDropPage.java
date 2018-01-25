@@ -23,6 +23,16 @@ public class DragDropPage extends BasePage {
         get(getUrl());
     }
 
+    @Override
+    protected void load() {
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(webElementBSelector);
+        waitForElement(webElementASelector);
+    }
+
     public String getUrl() {
         logger.info("Get Url");
         return BASE_URL + "/drag_and_drop";

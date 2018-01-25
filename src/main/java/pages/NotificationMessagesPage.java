@@ -31,6 +31,15 @@ public class NotificationMessagesPage extends BasePage {
         logger.info("Generate URL");
         return BASE_URL + "/notification_message_rendered";
     }
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(notificationMessageId);
+    }
 
     /**
      *

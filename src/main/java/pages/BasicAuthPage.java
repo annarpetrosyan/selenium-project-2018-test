@@ -1,17 +1,13 @@
 package pages;
 
 import helper.BasePage;
-import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.logging.Logger;
 
 /**
  * Created by anna.r.petrosyan on 1/17/2018.
  */
 public class BasicAuthPage extends BasePage {
-    Logger logger = Logger.getLogger(Log.class.getName());
     final String USERNAME = "admin";
     final String PASSWORD = "admin";
     final String URL = "@the-internet.herokuapp.com/basic_auth";
@@ -24,6 +20,16 @@ public class BasicAuthPage extends BasePage {
     @Override
     public String getUrl() {
         return null;
+    }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(resultSelector);
     }
 
     public BasicAuthPage(){

@@ -1,8 +1,6 @@
 package pages;
 
 import helper.BasePage;
-import org.apache.commons.logging.Log;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,13 +12,23 @@ public class AlertPage extends BasePage {
 
     @FindBy(id = "#result")
     private WebElement resultId ;
-    Logger logger = Logger.getLogger(Log.class.getName());
 
 
     public AlertPage() {
         logger.info("Constructor ");
         get(getUrl());
     }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(resultId);
+    }
+
 
     public String getUrl(){
         logger.info("Get Url");

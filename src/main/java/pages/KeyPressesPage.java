@@ -17,6 +17,16 @@ public class KeyPressesPage extends BasePage {
         return BASE_URL + "/key_presses" ;
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+
+    }
+
     public void pressOnKey(String keyName) {
     }
 }

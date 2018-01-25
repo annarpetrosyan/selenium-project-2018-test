@@ -33,6 +33,17 @@ public class HoverPage extends BasePage {
         logger.info("Generate URL. Contact to BASE URL");
         return BASE_URL + "/hovers";
     }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(avatarInfo);
+    }
+
     /**
      * check header is displayed
      * @return

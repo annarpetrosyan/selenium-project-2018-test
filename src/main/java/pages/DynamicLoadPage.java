@@ -29,6 +29,15 @@ public class DynamicLoadPage extends BasePage {
         get(getUrl());
     }
 
+    @Override
+    protected void load() {
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(startButton);
+    }
+
 
     public String getUrl(){
         logger.info("Generate URL. Contact to BaseURL ");

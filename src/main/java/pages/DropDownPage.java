@@ -25,9 +25,19 @@ public class DropDownPage extends BasePage {
         get(getUrl());
     }
 
+
     public String getUrl() {
         logger.info("generate URL");
         return BASE_URL + "/dropdown";
+    }
+
+    @Override
+    protected void load() {
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(dropdownId);
     }
 
     /**

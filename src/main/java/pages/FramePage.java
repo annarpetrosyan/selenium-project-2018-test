@@ -33,6 +33,16 @@ public class FramePage extends BasePage {
         return BASE_URL + "/tinymce";
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(textEditorTagName);
+    }
+
     /**
      *
      */

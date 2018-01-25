@@ -1,8 +1,6 @@
 package pages;
 
 import helper.BasePage;
-import org.apache.commons.logging.Log;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +11,7 @@ import java.util.List;
  * Created by anna.r.petrosyan on 1/4/2018.
  */
 public class StatusCodesPage extends BasePage {
-    Logger logger = Logger.getLogger(Log.class.getName());
+//    Logger logger = Logger.getLogger(Log.class.getName());
 
     @FindBy(css = "#content div h3")
     private WebElement statusCodeHeaderSelector;
@@ -40,6 +38,16 @@ public class StatusCodesPage extends BasePage {
     public String getUrl(){
         logger.info("Generate URL");
         return BASE_URL + "/status_codes";
+    }
+
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(statusCodeHeaderSelector);
     }
 
     /**

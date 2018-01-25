@@ -37,6 +37,17 @@ public class ForgotPasswordPage extends BasePage {
         return BASE_URL + "/forgot_password";
     }
 
+    @Override
+    protected void load() {
+
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(emailSelector);
+    }
+
+
 
     public void fillEmail(String value){
         logger.info("Fill e-mail field");

@@ -42,6 +42,15 @@ public class DynamicControlsPage extends BasePage {
         return BASE_URL + "/dynamic_controls";
     }
 
+    @Override
+    protected void load() {
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(checkBoxSelector);
+    }
+
     /**
      * This method check on A checkbox
      */

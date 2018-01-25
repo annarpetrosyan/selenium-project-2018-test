@@ -32,6 +32,15 @@ public class FileDownloadPage extends BasePage {
         return BASE_URL + "/download";
     }
 
+    @Override
+    protected void load() {
+    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        waitForElement(divOfDownloadsSelector);
+    }
+
 
     public void clickOnFile(String fileName){
         List<WebElement> href = divOfDownloadsSelector.findElements(By.tagName("a"));
