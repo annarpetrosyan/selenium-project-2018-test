@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -37,7 +38,9 @@ public class DropDownPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(dropdownId);
+        CommonWaits.getWait().
+                waitForElementIsVisible(dropdownId)
+                .waitForElementIsClickable(dropdownId);
     }
 
     /**

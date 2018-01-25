@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,7 +49,9 @@ public class DynamicControlsPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(checkBoxSelector);
+        CommonWaits.getWait().
+                waitForElementIsVisible(checkBoxSelector)
+                .waitForElementIsClickable(checkBoxSelector);
     }
 
     /**

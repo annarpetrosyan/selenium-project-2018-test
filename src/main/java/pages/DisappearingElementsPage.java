@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,7 +29,9 @@ public class DisappearingElementsPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(menuListSelector);
+        CommonWaits.getWait().
+                waitForElementIsVisible(menuListSelector)
+                .waitForElementIsClickable(menuListSelector);
     }
 
 

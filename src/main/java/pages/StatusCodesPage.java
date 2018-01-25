@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,7 +48,9 @@ public class StatusCodesPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(statusCodeHeaderSelector);
+        CommonWaits.getWait().
+                waitForElementIsVisible(statusCodeHeaderSelector)
+                .waitForElementIsClickable(statusCodeHeaderSelector);
     }
 
     /**
@@ -69,7 +72,7 @@ public class StatusCodesPage extends BasePage {
     }
 
     /**
-     * Get Elements and set in List<WebElement>
+     * Get Elements and set in List<OwnWebDriver>
      * @return
      */
     public List<WebElement> getElements(){

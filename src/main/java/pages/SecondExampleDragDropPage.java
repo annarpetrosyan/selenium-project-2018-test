@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -34,7 +35,9 @@ public class SecondExampleDragDropPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(elementASelector);
+        CommonWaits.getWait().
+                waitForElementIsVisible(elementASelector)
+                .waitForElementIsClickable(elementASelector);
     }
 
     public String getUrl() {

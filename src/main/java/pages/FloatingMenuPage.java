@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -27,7 +28,9 @@ public class FloatingMenuPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(menuSelector);
+        CommonWaits.getWait().
+                waitForElementIsVisible(menuSelector)
+                .waitForElementIsClickable(menuSelector);
     }
 
 

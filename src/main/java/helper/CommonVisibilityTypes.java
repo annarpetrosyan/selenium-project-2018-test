@@ -17,6 +17,11 @@ public class CommonVisibilityTypes {
         return commonMethodsHelper;
     }
 
+    public static CommonVisibilityTypes getWait(){
+        CommonVisibilityTypes commonVisibilityTypes = new CommonVisibilityTypes();
+        return commonVisibilityTypes;
+    }
+
     private CommonVisibilityTypes isElementVisible(WebElement webElement){
         try{
             new WebDriverWait(getDriver(), 10).until(ExpectedConditions.visibilityOf(webElement));
@@ -25,6 +30,16 @@ public class CommonVisibilityTypes {
             throw new Error("Element is not visible");
         }
     }
+
+    public CommonVisibilityTypes isnotElementVisible(WebElement webElement){
+        try{
+            new WebDriverWait(getDriver(), 10).until(ExpectedConditions.invisibilityOf(webElement));
+            return this;
+        }catch (WebDriverException e){
+            throw new Error("Element is not visible");
+        }
+    }
+
 
     private CommonVisibilityTypes isElementClickable(WebElement webElement){
         try{

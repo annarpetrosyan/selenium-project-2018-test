@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,9 +32,9 @@ public class DataTablesPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(table1Selector);
-        waitForElement(table2Selector);
-
+        CommonWaits.getWait().
+                waitForElementIsVisible(table1Selector)
+                .waitForElementIsClickable(table1Selector);
     }
 
 

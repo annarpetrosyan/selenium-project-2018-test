@@ -25,10 +25,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
 
 
 
-    public WebElement waitForElement(WebElement webElement){
-      WebDriverWait wait=  new WebDriverWait(driver, 10);
-          return wait.until(ExpectedConditions.visibilityOf(webElement));
-    }
+
 
 
     @Override
@@ -80,7 +77,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
      *  --Todo uzum em mi hat element tam, vor yndhanracvac lini
      * @return // add web element
      * and check element.findElements ()
-     * WebElement element
+     * OwnWebDriver element
      */
     public WebElement getLiForUlByIndex( int indexNumber){
        WebElement uLElement = find(By.tagName("ul"));
@@ -97,7 +94,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     /**
      * Get column webElement by provided row and cell index
      * @param tableElement 1
-     *      WebElement of table
+     *      OwnWebDriver of table
      * @param rowNumber
      *        row Number
      * @param cellNumber
@@ -115,7 +112,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     /**
      * This method click on table header by provided rowNumber and cellNumber (th)
      * @param tableElement
-     *      WebElement of table
+     *      OwnWebDriver of table
      * @param rowThNumber
      *        row th Number
      * @param cellThNumber
@@ -197,7 +194,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     /**
      * This is overloaded FIND method which work with general find method
      * @param cssSelector
-     * @return WebElement
+     * @return OwnWebDriver
      */
     public WebElement find(String cssSelector){
     logger.info("Find Element by cssSelector");

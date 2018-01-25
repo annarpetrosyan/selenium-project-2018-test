@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -44,7 +45,9 @@ public class ForgotPasswordPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(emailSelector);
+        CommonWaits.getWait().
+                waitForElementIsVisible(emailSelector)
+                .waitForElementIsClickable(emailSelector);
     }
 
 

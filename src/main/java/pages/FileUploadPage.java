@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,7 +38,9 @@ public class FileUploadPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(fileSubmitButton);
+        CommonWaits.getWait().
+                waitForElementIsVisible(fileSubmitButton)
+                .waitForElementIsClickable(fileSubmitButton);
     }
 
     @Override

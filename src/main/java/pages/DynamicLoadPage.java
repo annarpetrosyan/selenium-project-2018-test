@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -35,7 +36,9 @@ public class DynamicLoadPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(startButton);
+        CommonWaits.getWait().
+                waitForElementIsVisible(startButton)
+                .waitForElementIsClickable(startButton);
     }
 
 

@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,7 +45,7 @@ public class CheckboxPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(checkBoxesSelector);
+        CommonWaits.getWait().waitForElementIsVisible(checkBoxesSelector);
     }
 
 

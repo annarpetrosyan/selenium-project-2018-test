@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +27,9 @@ public class AlertPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(resultId);
+        CommonWaits.getWait().
+                waitForElementIsVisible(resultId)
+                .waitForElementIsClickable(resultId);
     }
 
 

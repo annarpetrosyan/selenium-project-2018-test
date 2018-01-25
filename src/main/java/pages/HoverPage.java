@@ -1,6 +1,8 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonVisibilityTypes;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -41,7 +43,9 @@ public class HoverPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(avatarInfo);
+        CommonWaits.getWait().
+                waitForElementIsVisible(avatarInfo)
+                .waitForElementIsClickable(avatarInfo);
     }
 
     /**
@@ -58,8 +62,15 @@ public class HoverPage extends BasePage {
      * @return
      */
     public boolean isHeaderNotDisplayed(){
-        logger.info("Is not header display?");
-        return isNotDisplayed(avatarInfo, 5);
+        try{
+            CommonVisibilityTypes.getWait().isnotElementVisible(avatarInfo);
+                    return true;
+        }catch(Error e){
+            return false;
+
+        }
+//        logger.info("Is not header display?");
+//        return isNotDisplayed(avatarInfo, 5);
     }
 
     /**

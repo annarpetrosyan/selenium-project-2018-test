@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
@@ -38,7 +39,9 @@ public class NotificationMessagesPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(notificationMessageId);
+        CommonWaits.getWait().
+                waitForElementIsVisible(notificationMessageId)
+                .waitForElementIsClickable(notificationMessageId);
     }
 
     /**

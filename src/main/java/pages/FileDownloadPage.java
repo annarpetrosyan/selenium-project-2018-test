@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -38,7 +39,9 @@ public class FileDownloadPage extends BasePage {
 
     @Override
     protected void isLoaded() throws Error {
-        waitForElement(divOfDownloadsSelector);
+        CommonWaits.getWait().
+                waitForElementIsVisible(divOfDownloadsSelector)
+                .waitForElementIsClickable(divOfDownloadsSelector);
     }
 
 
