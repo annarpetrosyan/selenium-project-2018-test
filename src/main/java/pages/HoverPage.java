@@ -63,14 +63,12 @@ public class HoverPage extends BasePage {
      */
     public boolean isHeaderNotDisplayed(){
         try{
-            CommonVisibilityTypes.getWait().isnotElementVisible(avatarInfo);
+            CommonVisibilityTypes.getWait().isNotVisible(avatarInfo);
                     return true;
         }catch(Error e){
             return false;
 
         }
-//        logger.info("Is not header display?");
-//        return isNotDisplayed(avatarInfo, 5);
     }
 
     /**
@@ -90,7 +88,7 @@ public class HoverPage extends BasePage {
      */
     public List<WebElement> getAvatars(){
         logger.info("Find elements of avatar. getAvatars");
-        return findElements(By.cssSelector(avatarSelector));
+        return driver.findElements(By.cssSelector(avatarSelector));
      }
 
 

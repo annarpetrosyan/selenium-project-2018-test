@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonVisibilityTypes;
 import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
@@ -77,7 +78,13 @@ public class DynamicControlsPage extends BasePage {
      */
     public boolean isLoadingDisplayed(){
         logger.info("Is loading display?");
-        return isDisplayed(loadingSelector);
+        try{
+                CommonVisibilityTypes.getWait().isVisible(loadingSelector);
+        }catch(Error e){
+            throw new Error("Error") ;
+        }
+        return false;
+
     }
 
     /**
@@ -87,7 +94,12 @@ public class DynamicControlsPage extends BasePage {
      */
     public boolean isNotLoadingDisplayed(){
         logger.info("Is loading display?");
-        return isNotDisplayed(loadingSelector, 10);
+        try{
+            CommonVisibilityTypes.getWait().isNotVisible(loadingSelector);
+        }catch (Error message){
+            return false;
+        }
+        return true;
     }
 
 

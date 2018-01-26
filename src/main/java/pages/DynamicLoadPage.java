@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonVisibilityTypes;
 import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
@@ -54,19 +55,34 @@ public class DynamicLoadPage extends BasePage {
 
     public boolean isLoadingDisplayed(){
         logger.info("Is loading display?");
-        return isDisplayed(loadingSelector, 10);
-    }
+        try{
+            CommonVisibilityTypes.getWait().isVisible(loadingSelector);
+        }catch(Error e){
+            throw new Error("Error") ;
+        }
+        return false;
+           }
 
     public boolean isLoadingNotDisplayed(){
         logger.info("Is not loading display?");
-        return  isNotDisplayed(loadingSelector, 10);
+        try{
+            CommonVisibilityTypes.getWait().isNotVisible(loadingSelector);
+        }catch (Error message){
+            return false;
+        }
+        return true;
     }
 
 
 
     public boolean isFinishDisplayed(){
         logger.info("Is finish display?");
-        return isDisplayed(finishSelector, 10);
+        try{
+            CommonVisibilityTypes.getWait().isVisible(finishSelector);
+        }catch(Error e){
+            throw new Error("Error") ;
+        }
+        return false;
     }
 
 

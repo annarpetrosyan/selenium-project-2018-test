@@ -9,20 +9,19 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.List;
-import java.util.Set;
 
 import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
  */
-public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> implements WebDriver {
+public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableComponent<T> {
     protected WebDriver driver;
     private JavascriptExecutor js = (JavascriptExecutor) driver;;
     public Logger logger = Logger.getLogger(Log.class.getName());
     private WebDriverWait wait;
-
 
 
 
@@ -385,43 +384,6 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
         Actions actions = new Actions(driver);
         Action dragAndDrop = actions.clickAndHold(webElement1).moveToElement(webElement2).release(webElement2).build();
         dragAndDrop.perform();
-    }
-
-    public String getTitle() {
-        return null;
-    }
-
-    public List<WebElement> findElements(By by) {
-        return null;
-    }
-
-    public WebElement findElement(By by) {
-        return null;
-    }
-
-    public String getPageSource() {
-        return null;
-    }
-
-
-    public Set<String> getWindowHandles() {
-        return null;
-    }
-
-    public String getWindowHandle() {
-        return null;
-    }
-
-    public TargetLocator switchTo() {
-        return null;
-    }
-
-    public Navigation navigate() {
-        return null;
-    }
-
-    public Options manage() {
-        return null;
     }
 
 

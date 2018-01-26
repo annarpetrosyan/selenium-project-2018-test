@@ -11,7 +11,6 @@ import org.openqa.selenium.support.FindBy;
  * Created by anna.r.petrosyan on 1/4/2018.
  */
 public class SecondExampleDragDropPage extends BasePage {
-
     Logger logger = Logger.getLogger(Log.class.getName());
 
     @FindBy(css = "div#draggable")

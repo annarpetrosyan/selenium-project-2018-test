@@ -1,6 +1,7 @@
 package pages;
 
 import helper.BasePage;
+import helper.CommonVisibilityTypes;
 import helper.CommonWaits;
 import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebElement;
@@ -57,15 +58,18 @@ public class DisappearingElementsPage extends BasePage {
      */
     public boolean isDisplayedLatestContentOfMenuGallery(){
         try {
-            return isDisplayed(getLiForUlByIndex(5));
+            CommonVisibilityTypes.getWait().isVisible(getLiForUlByIndex(5));
+
         }catch (NullPointerException e){
             return false;
         }
+        return true;
+
     }
 
     public String getTextOfLatestElementIfExist(){
         try {
-            isDisplayed(getLiForUlByIndex(5));
+            CommonVisibilityTypes.getWait().isVisible(getLiForUlByIndex(5));
             return getLiForUlByIndex(5).getText();
           }catch (NullPointerException e){
             return  "Gallery is not displayed. Please, reload page and try again";
