@@ -20,7 +20,7 @@ public class DropdownTest extends BaseTest {
         dropDownPage.selectValue("Option 1");
         assertEquals(dropDownPage.getSelectedValue(), "Option 1");
         dropDownPage.selectValue("Option 2");
-        assertEquals(dropDownPage.getSelectedValue(), "Option 1");
+        assertEquals(dropDownPage.getSelectedValue(), "Option 2");
 
     }
     @Test

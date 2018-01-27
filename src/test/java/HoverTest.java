@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HoverPage;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 
@@ -26,7 +27,7 @@ public class HoverTest extends BaseTest {
     public void hoverPageTest() {
        assertTrue(hoverPage.isHeaderNotDisplayed(),"Header was not visible!");
         hoverPage.hoverAvatar(1);
-        assertTrue(hoverPage.isHeaderDisplayed(),"Header was visible!");
+        assertFalse(hoverPage.isHeaderDisplayed(),"Header was visible!");
     }
 
 }

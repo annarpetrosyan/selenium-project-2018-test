@@ -41,12 +41,6 @@ public class HoverPage extends BasePage {
 
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(avatarInfo)
-                .waitForElementIsClickable(avatarInfo);
-    }
 
     /**
      * check header is displayed

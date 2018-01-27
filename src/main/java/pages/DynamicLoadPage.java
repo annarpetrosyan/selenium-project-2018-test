@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by anna.r.petrosyan on 1/13/2018.
+ * Todo 1
  */
 public class DynamicLoadPage extends BasePage {
     Logger logger = Logger.getLogger(Log.class.getName());

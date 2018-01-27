@@ -22,7 +22,7 @@ public class ForgotPasswordTest extends  BaseTest{
     }
 
     @Test
-    public void setFloatingMenuPageTest(){
+    public void forgotPasswordPageTest(){
         forgotPasswordPage.fillEmail("test@test.com");
         forgotPasswordPage.clickOnRetrievePassword();
         assertTrue(forgotPasswordPage.getResult().contains("Your e-mail's been sent!"));
@@ -30,7 +30,7 @@ public class ForgotPasswordTest extends  BaseTest{
     }
 
     @Test
-    public void setFloatingMenuPageNegativeTest(){
+    public void forgotPasswordPageNegativeTest(){
         forgotPasswordPage.clickOnRetrievePassword();
         assertTrue(forgotPasswordPage.getErrorOfPage().contains("Internal Server Error"));
 

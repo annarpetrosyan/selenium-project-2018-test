@@ -8,6 +8,7 @@ import static org.testng.Assert.assertTrue;
 
 /**
  * Created by anna.r.petrosyan on 1/17/2018.
+ * Todo 2
  */
 public class DynamicControlsTest extends BaseTest {
     private DynamicControlsPage dynamicControlsPage;

@@ -40,8 +40,8 @@ public class NotificationMessagesPage extends BasePage {
     @Override
     protected void isLoaded() throws Error {
         CommonWaits.getWait().
-                waitForElementIsVisible(notificationMessageId)
-                .waitForElementIsClickable(notificationMessageId);
+                waitForElementIsVisible(clickHereHrefId)
+                .waitForElementIsClickable(clickHereHrefId);
     }
 
     /**
@@ -70,7 +70,7 @@ public class NotificationMessagesPage extends BasePage {
      */
     public Integer getCountOfClickForPass() {
         logger.info("Condition for Action Successfully state");
-        if(getNotificationMessage().equals("Action successful")){
+        if(getNotificationMessage().contains("Action successful")){
             ((JavascriptExecutor) driver).executeScript("alert('Action successful - Test Passed!');");
         }else{
             count++;

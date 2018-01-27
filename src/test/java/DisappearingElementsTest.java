@@ -3,6 +3,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DisappearingElementsPage;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -25,7 +26,7 @@ public class DisappearingElementsTest extends BaseTest {
     public void setDisappearingElementsPageTest(){
         disappearingElementsPage.getMenuWebElementByIndex(1); // indexNumber = 1 == Home, indexNumber = 2 == About, etc.
         assertTrue(disappearingElementsPage.getMenuWebElementByIndex(1).getText().equals("Home"), "Assertion Error!");
-        assertTrue(disappearingElementsPage.isDisplayedLatestContentOfMenuGallery(),"Latest Menu item is missing");
+        assertFalse(disappearingElementsPage.isDisplayedLatestContentOfMenuGallery(),"Latest Menu item is missing");
         System.out.println("Result for Latest Element of Menu = " + disappearingElementsPage.getTextOfLatestElementIfExist());
         disappearingElementsPage.clickOnMenuByIndexNumber(1);
     }

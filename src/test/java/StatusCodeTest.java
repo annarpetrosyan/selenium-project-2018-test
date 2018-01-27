@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import pages.StatusCodesPage;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 
 public class StatusCodeTest extends BaseTest {
@@ -23,7 +24,7 @@ public class StatusCodeTest extends BaseTest {
         statusCodesPage = new StatusCodesPage();
         assertEquals(statusCodesPage.getHeaderText(), "Status Codes", "Different Headers");
         statusCodesPage.clickOnStatusCode("500");
-        assertEquals(statusCodesPage.getMessageInOpenedPageOfStatus(), "This page returned a 500 status code.", "Different Messages");
+        assertTrue(statusCodesPage.getMessageInOpenedPageOfStatus().contains("This page returned a 500 status code."), "Different Messages");
     }
 
     @AfterMethod

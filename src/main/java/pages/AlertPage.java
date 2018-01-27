@@ -20,23 +20,19 @@ public class AlertPage extends BasePage {
         get(getUrl());
     }
 
+    public String getUrl(){
+        logger.info("Get Url");
+        return BASE_URL + "/javascript_alerts";
+    }
+
+
     @Override
     protected void load() {
 
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(resultId)
-                .waitForElementIsClickable(resultId);
-    }
 
 
-    public String getUrl(){
-        logger.info("Get Url");
-        return BASE_URL + "/javascript_alerts";
-    }
     public void createTempAlert(String message){
         logger.info("Execute JS sccript, generate alert");
         ((JavascriptExecutor) driver).executeScript("alert('"+message+"');");
