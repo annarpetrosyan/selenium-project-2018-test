@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 import static setup.DriverSetup.getDriver;
+import static setup.DriverSetup.initDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.
@@ -34,7 +35,7 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
 
     @Override
     protected void isLoaded() throws Error {
-    driver.getCurrentUrl().contains(getUrl());
+        driver.getCurrentUrl().contains(getUrl());
     }
 
     public static final String BASE_URL =
@@ -58,12 +59,12 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     public void get(String BaseUrl) {
     logger.info("Get Url");
         driver.get(BaseUrl);
-    logger.info("Cleaning Cookies");
-        driver.manage().deleteAllCookies();
-    logger.info("Maximize window");
-        driver.manage().window().maximize();
-    logger.info("Cleaning local Storage");
-        ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
+//    logger.info("Cleaning Cookies");
+//        driver.manage().deleteAllCookies();
+//    logger.info("Maximize window");
+//        driver.manage().window().maximize();
+//    logger.info("Cleaning local Storage");
+//        ((JavascriptExecutor) driver).executeScript("window.localStorage.clear();");
 //        js.executeScript("window.localStorage.clear();");
         this.get();
 
