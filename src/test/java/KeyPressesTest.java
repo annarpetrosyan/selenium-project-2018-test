@@ -3,6 +3,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.KeyPressesPage;
 
+import static org.testng.Assert.assertTrue;
+
 /**
  * Created by anna.r.petrosyan on 1/22/2018.
  */
@@ -23,6 +25,7 @@ public class KeyPressesTest  extends BaseTest{
     @Test
     public void keyPressTest(){
         keyPressesPage.pressOnKey("ENTER");
+        assertTrue(keyPressesPage.getResult().contains("ENTER"),"Default message");
 
     }
 

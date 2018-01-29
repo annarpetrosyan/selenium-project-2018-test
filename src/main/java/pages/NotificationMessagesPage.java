@@ -63,7 +63,6 @@ public class NotificationMessagesPage extends BasePage {
 
 
     int count = 0;
-
     /**
      *
      * @return
