@@ -8,20 +8,20 @@ import pages.BasicAuthPage;
  */
 public class BasicAuthTest extends BaseTest {
     private BasicAuthPage basicAuthPage;
-
-    @BeforeMethod
-    public void setUp(){
-        basicAuthPage = new BasicAuthPage();
-    }
-
-
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
-
-    @Test
-    public void basicAuthPageTest(){
-        assert(basicAuthPage.getResult().contains("Congratulations! You must have the proper credentials."));
-    }
+//
+//    @BeforeMethod
+//    public void setUp(){
+////        basicAuthPage = new BasicAuthPage();
+//    }
+//
+//
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
+//
+//    @Test
+//    public void basicAuthPageTest(){
+////        assert(basicAuthPage.getResult().contains("Congratulations! You must have the proper credentials."));
+//    }
 }
