@@ -3,10 +3,9 @@
 <suite name="TestNG Listener Example">
     <listeners>
         <listener class-name="setup.listeners.RetryListener" />
-
     </listeners>
 
-    <test name="Selenium" preserve-order="true">
+    <test name="ArmIndian Selenium" parallel="methods" thread-count="2">
         <packages>
             <package name=""/>
         </packages>
