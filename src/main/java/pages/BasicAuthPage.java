@@ -28,12 +28,12 @@ public class BasicAuthPage extends BasePage {
 
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(resultSelector)
-        .waitForElementIsClickable(resultSelector);
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().
+//                waitForElementIsVisible(resultSelector)
+//        .waitForElementIsClickable(resultSelector);
+//    }
 
     public BasicAuthPage(){
         logger.info("Get Url");

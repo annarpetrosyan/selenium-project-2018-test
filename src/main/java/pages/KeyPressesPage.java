@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import static setup.DriverSetup.getDriver;
+import static setup.DriverSetup.initDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/22/2018.
@@ -35,13 +35,13 @@ public class KeyPressesPage extends BasePage {
 
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().waitForElementIsVisible(contentSelector);
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().waitForElementIsVisible(contentSelector);
+//    }
 
     public void pressOnKey(String keyName) {
-        Actions action = new Actions(getDriver());
+        Actions action = new Actions(initDriver());
 
         switch (keyName){
             case "ENTER":

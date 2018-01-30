@@ -13,12 +13,12 @@ public class AlertTest extends BaseTest {
 
     }
 
-    @Test
-    public void createdAlertTest(){
-        alertPage.createTempAlert("Text for 1st alert");
-        alertPage.closeAlert();
-    }
-//
+//    @Test
+//    public void createdAlertTest(){
+//        alertPage.createTempAlert("Text for 1st alert");
+//        alertPage.closeAlert();
+//    }
+////
 //    @Test
 //    public void alertOfPageTest(){
 //        alertPage = new AlertPage();

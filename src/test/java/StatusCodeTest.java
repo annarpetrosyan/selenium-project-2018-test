@@ -27,10 +27,10 @@ public class StatusCodeTest extends BaseTest {
         assertTrue(statusCodesPage.getMessageInOpenedPageOfStatus().contains("This page returned a 500 status code."), "Different Messages");
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
 
 }

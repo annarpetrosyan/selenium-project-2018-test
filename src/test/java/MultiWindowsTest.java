@@ -19,9 +19,9 @@ public class MultiWindowsTest extends BaseTest {
         multiWindowPage.switchToWindow(0);
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
 }

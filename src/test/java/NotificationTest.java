@@ -21,10 +21,10 @@ public class NotificationTest extends BaseTest {
         notificationMessagesPage.getCountOfClickForPass();
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
 
 }

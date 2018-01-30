@@ -26,12 +26,12 @@ public class FloatingMenuPage extends BasePage {
 
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(menuSelector)
-                .waitForElementIsClickable(menuSelector);
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().
+//                waitForElementIsVisible(menuSelector)
+//                .waitForElementIsClickable(menuSelector);
+//    }
 
 
     public void selectMenuByName(String tabName){

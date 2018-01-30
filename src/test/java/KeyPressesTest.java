@@ -17,10 +17,10 @@ public class KeyPressesTest  extends BaseTest{
     }
 
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
     @Test
     public void keyPressTest(){

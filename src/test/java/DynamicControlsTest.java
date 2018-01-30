@@ -11,28 +11,28 @@ import static org.testng.Assert.assertTrue;
  * Todo 2
  */
 public class DynamicControlsTest extends BaseTest {
-    private DynamicControlsPage dynamicControlsPage;
-
-    @BeforeMethod
-    public void setUp(){
-        dynamicControlsPage = new DynamicControlsPage();
-    }
-
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
-
-    @Test
-    public void dynamicControlsTest(){
-        dynamicControlsPage.checkTheCheckbox();
-        dynamicControlsPage.clickOnAddRemoveButton();
-        assertTrue(dynamicControlsPage.isLoadingDisplayed());
-        assertTrue(dynamicControlsPage.isNotLoadingDisplayed());
-        assertEquals(dynamicControlsPage.getResultAfterLoading(), "It's gone!");
-        dynamicControlsPage.clickOnAddRemoveButton();
-        assertTrue(dynamicControlsPage.isLoadingDisplayed());
-        assertTrue(dynamicControlsPage.isNotLoadingDisplayed());
-        assertEquals(dynamicControlsPage.getResultAfterLoading(), "It's back!");
-    }
+//    private DynamicControlsPage dynamicControlsPage;
+//
+//    @BeforeMethod
+//    public void setUp(){
+//        dynamicControlsPage = new DynamicControlsPage();
+//    }
+//
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
+//
+//    @Test
+//    public void dynamicControlsTest(){
+//        dynamicControlsPage.checkTheCheckbox();
+//        dynamicControlsPage.clickOnAddRemoveButton();
+//        assertTrue(dynamicControlsPage.isLoadingDisplayed());
+//        assertTrue(dynamicControlsPage.isNotLoadingDisplayed());
+//        assertEquals(dynamicControlsPage.getResultAfterLoading(), "It's gone!");
+//        dynamicControlsPage.clickOnAddRemoveButton();
+//        assertTrue(dynamicControlsPage.isLoadingDisplayed());
+//        assertTrue(dynamicControlsPage.isNotLoadingDisplayed());
+//        assertEquals(dynamicControlsPage.getResultAfterLoading(), "It's back!");
+//    }
 }

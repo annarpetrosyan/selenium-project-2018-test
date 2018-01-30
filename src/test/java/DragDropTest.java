@@ -5,25 +5,25 @@ import pages.DragDropPage;
 
 
 public class DragDropTest extends BaseTest {
-    private DragDropPage dragDropPage;
+//    private DragDropPage dragDropPage;
 
-    @BeforeMethod
-    public void setUp() {
-        dragDropPage = new DragDropPage();
-
-    }
-
-
-    @Test
-    public void setDragDropTest(){
-        dragDropPage.dragAndDrop();
-        dragDropPage.dragAndDrop();
-    }
-
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @BeforeMethod
+//    public void setUp() {
+//        dragDropPage = new DragDropPage();
+//
+//    }
+//
+//
+//    @Test
+//    public void setDragDropTest(){
+//        dragDropPage.dragAndDrop();
+//        dragDropPage.dragAndDrop();
+//    }
+//
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
 
 }

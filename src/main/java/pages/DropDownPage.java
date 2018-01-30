@@ -36,12 +36,12 @@ public class DropDownPage extends BasePage {
     protected void load() {
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(dropdownId)
-                .waitForElementIsClickable(dropdownId);
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().
+//                waitForElementIsVisible(dropdownId)
+//                .waitForElementIsClickable(dropdownId);
+//    }
 
     /**
      * Get Drop down Webelement

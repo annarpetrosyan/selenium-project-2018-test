@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static setup.DriverSetup.getDriver;
+import static setup.DriverSetup.initDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/29/2018.
@@ -32,7 +32,7 @@ public class NestedFramesPage extends BasePage{
 
 
     public void switchToBottomFrame(){
-        getDriver().switchTo().frame(bottomFrame);
+        initDriver().switchTo().frame(bottomFrame);
     }
 
 
@@ -42,7 +42,7 @@ public class NestedFramesPage extends BasePage{
 
     public void switchMiddleFrameByIndex(int indexNumber){
         List<WebElement> frames = findElems(By.cssSelector("frameset[name='frameset-middle'] > frame"));
-        getDriver().switchTo().frame(frames.get(indexNumber).toString());
+        initDriver().switchTo().frame(frames.get(indexNumber).toString());
     }
 
 }

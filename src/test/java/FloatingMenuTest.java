@@ -14,10 +14,10 @@ public class FloatingMenuTest extends  BaseTest{
         floatingMenuPage = new FloatingMenuPage();
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
     @Test
     public void setFloatingMenuPageTest(){

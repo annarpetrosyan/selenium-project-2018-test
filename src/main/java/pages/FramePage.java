@@ -38,13 +38,13 @@ public class FramePage extends BasePage {
     protected void load() {
 
     }
-
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(textEditorTagName)
-                .waitForElementIsClickable(textEditorTagName);
-    }
+//
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().
+//                waitForElementIsVisible(textEditorTagName)
+//                .waitForElementIsClickable(textEditorTagName);
+//    }
 
     /**
      *

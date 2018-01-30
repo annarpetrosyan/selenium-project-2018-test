@@ -37,12 +37,12 @@ public class NotificationMessagesPage extends BasePage {
 
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(clickHereHrefId)
-                .waitForElementIsClickable(clickHereHrefId);
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().
+//                waitForElementIsVisible(clickHereHrefId)
+//                .waitForElementIsClickable(clickHereHrefId);
+//    }
 
     /**
      *

@@ -37,12 +37,12 @@ public class FileDownloadPage extends BasePage {
     protected void load() {
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(divOfDownloadsSelector)
-                .waitForElementIsClickable(divOfDownloadsSelector);
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().
+//                waitForElementIsVisible(divOfDownloadsSelector)
+//                .waitForElementIsClickable(divOfDownloadsSelector);
+//    }
 
 
     public void clickOnFile(String fileName){

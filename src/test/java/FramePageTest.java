@@ -20,10 +20,10 @@ public class FramePageTest extends BaseTest {
         framePage.fillTextInTextEditor("This is text");
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
 
 }

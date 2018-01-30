@@ -16,10 +16,10 @@ public class ForgotPasswordTest extends  BaseTest{
         forgotPasswordPage = new ForgotPasswordPage();
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
     @Test
     public void forgotPasswordPageTest(){

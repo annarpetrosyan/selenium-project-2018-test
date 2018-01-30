@@ -30,12 +30,12 @@ public class DataTablesPage extends BasePage {
 
     }
 
-    @Override
-    protected void isLoaded() throws Error {
-        CommonWaits.getWait().
-                waitForElementIsVisible(table1Selector)
-                .waitForElementIsClickable(table1Selector);
-    }
+//    @Override
+//    protected void isLoaded() throws Error {
+//        CommonWaits.getWait().
+//                waitForElementIsVisible(table1Selector)
+//                .waitForElementIsClickable(table1Selector);
+//    }
 
 
     @Override

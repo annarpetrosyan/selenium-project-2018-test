@@ -7,24 +7,24 @@ import static org.testng.Assert.assertTrue;
 
 
 public class DragDropTest2 extends BaseTest {
-    private SecondExampleDragDropPage secondExampleDragDropPage;
+//    private SecondExampleDragDropPage secondExampleDragDropPage;
 
-    @BeforeMethod
-    public void setUp() {
-        secondExampleDragDropPage =  new SecondExampleDragDropPage();
-
-    }
-
-    @Test
-    public void setDragDropTest() {
-          secondExampleDragDropPage.dragAndDropSecondExample();
-          assertTrue(secondExampleDragDropPage.getDroppableText().contains("Dropped!"),"Assertion error!");
- }
-
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @BeforeMethod
+//    public void setUp() {
+//        secondExampleDragDropPage =  new SecondExampleDragDropPage();
+//
+//    }
+//
+//    @Test
+//    public void setDragDropTest() {
+//          secondExampleDragDropPage.dragAndDropSecondExample();
+//          assertTrue(secondExampleDragDropPage.getDroppableText().contains("Dropped!"),"Assertion error!");
+// }
+//
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
 
 }

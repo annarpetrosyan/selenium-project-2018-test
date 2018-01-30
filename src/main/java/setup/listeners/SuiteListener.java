@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.logging.Logger;
 
 import static setup.DriverSetup.getDriver;
+import static setup.DriverSetup.initDriver;
 
 public class SuiteListener extends TestListenerAdapter{
 

@@ -23,12 +23,7 @@ public class DropdownTest extends BaseTest {
         assertEquals(dropDownPage.getSelectedValue(), "Option 2");
 
     }
-    @Test
-    public void alert() {
-        dropDownPage.forceAlert();
-        dropDownPage.closeAlert();
 
-    }
 
     @AfterMethod
     public void tearDown(){

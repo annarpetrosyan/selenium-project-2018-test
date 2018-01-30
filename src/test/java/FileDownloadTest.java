@@ -13,10 +13,10 @@ public class FileDownloadTest extends BaseTest {
         fileDownloadPage = new FileDownloadPage();
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
     @Test
     public void fileDownloadPageTest(){

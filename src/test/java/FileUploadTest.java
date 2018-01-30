@@ -21,10 +21,10 @@ public class FileUploadTest extends BaseTest {
         fileUploadPage = new FileUploadPage();
     }
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
     @Test
     public void fileUploadPageTest() throws IOException {
