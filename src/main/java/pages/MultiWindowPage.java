@@ -35,12 +35,12 @@ public class MultiWindowPage extends BasePage {
 
     }
 
-//    @Override
-//    protected void isLoaded() throws Error {
-//        CommonWaits.getWait().
-//                waitForElementIsVisible(hrefcssSelector)
-//                .waitForElementIsClickable(hrefcssSelector);
-//    }
+    @Override
+    protected void isLoaded() throws Error {
+        CommonWaits.getWait().
+                waitForElementIsVisible(hrefcssSelector)
+                .waitForElementIsClickable(hrefcssSelector);
+    }
 
     /**
      * Click on Click here link

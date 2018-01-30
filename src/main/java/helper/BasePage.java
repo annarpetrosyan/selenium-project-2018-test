@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 import static setup.DriverSetup.getDriver;
-import static setup.DriverSetup.initDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/4/2018.

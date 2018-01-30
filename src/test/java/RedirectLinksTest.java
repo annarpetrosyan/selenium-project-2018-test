@@ -1,9 +1,5 @@
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.RedirectLinksPage;
-
-import static org.testng.Assert.assertTrue;
 
 /**
  * Created by anna.r.petrosyan on 1/29/2018.
@@ -11,12 +7,12 @@ import static org.testng.Assert.assertTrue;
 public class RedirectLinksTest extends BaseTest{
     private RedirectLinksPage redirectLinksPage;
 
-    @BeforeMethod
-    public void setUp(){
-        redirectLinksPage = new RedirectLinksPage();
-
-    }
-
+//    @BeforeMethod
+//    public void setUp(){
+//        redirectLinksPage = new RedirectLinksPage();
+//
+//    }
+//
 //    @AfterMethod
 //    public void tearDown(){
 //        tearDownBase();
@@ -24,9 +20,9 @@ public class RedirectLinksTest extends BaseTest{
 
     @Test
     public void redirectLinksTest(){
+        redirectLinksPage = new RedirectLinksPage();
         redirectLinksPage.clickOnHere();
 //        redirectLinksPage.switchToWindowByIndex(1);
-//        redirectLinksPage.clickOnStatusCode("301");
-//        assertTrue(redirectLinksPage.getMessageInOpenedPageOfStatus().contains("This page returned a 301 status code."), "Different Messages");
     }
+
 }

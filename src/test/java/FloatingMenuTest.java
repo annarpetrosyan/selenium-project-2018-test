@@ -1,5 +1,3 @@
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.FloatingMenuPage;
 
@@ -9,11 +7,11 @@ import pages.FloatingMenuPage;
 public class FloatingMenuTest extends  BaseTest{
     private FloatingMenuPage floatingMenuPage;
 
-    @BeforeMethod
-    public void setUp(){
-        floatingMenuPage = new FloatingMenuPage();
-    }
-
+//    @BeforeMethod
+//    public void setUp(){
+//        floatingMenuPage = new FloatingMenuPage();
+//    }
+//
 //    @AfterMethod
 //    public void tearDown(){
 //        tearDownBase();
@@ -21,6 +19,7 @@ public class FloatingMenuTest extends  BaseTest{
 
     @Test
     public void setFloatingMenuPageTest(){
+        floatingMenuPage = new FloatingMenuPage();
         floatingMenuPage.selectMenuByName("Home");
         floatingMenuPage.selectMenuByName("About");
 

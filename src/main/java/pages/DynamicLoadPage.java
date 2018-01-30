@@ -36,12 +36,12 @@ public class DynamicLoadPage extends BasePage {
     protected void load() {
     }
 
-//    @Override
-//    protected void isLoaded() throws Error {
-//        CommonWaits.getWait().
-//                waitForElementIsVisible(startButton)
-//                .waitForElementIsClickable(startButton);
-//    }
+    @Override
+    protected void isLoaded() throws Error {
+        CommonWaits.getWait().
+                waitForElementIsVisible(startButton)
+                .waitForElementIsClickable(startButton);
+    }
 
 
     public String getUrl(){

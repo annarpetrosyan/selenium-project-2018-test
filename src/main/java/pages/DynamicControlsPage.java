@@ -48,12 +48,12 @@ public class DynamicControlsPage extends BasePage {
     protected void load() {
     }
 
-//    @Override
-//    protected void isLoaded() throws Error {
-//        CommonWaits.getWait().
-//                waitForElementIsVisible(checkBoxSelector)
-//                .waitForElementIsClickable(checkBoxSelector);
-//    }
+    @Override
+    protected void isLoaded() throws Error {
+        CommonWaits.getWait().
+                waitForElementIsVisible(checkBoxSelector)
+                .waitForElementIsClickable(checkBoxSelector);
+    }
 
     /**
      * This method check on A checkbox

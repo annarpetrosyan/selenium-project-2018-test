@@ -1,5 +1,3 @@
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DropDownPage;
 
@@ -9,14 +7,19 @@ import static org.testng.Assert.assertEquals;
 public class DropdownTest extends BaseTest {
     private DropDownPage dropDownPage;
 
-    @BeforeMethod
-    public void setUp() {
-        dropDownPage = new DropDownPage();
-
-    }
+//    @BeforeMethod
+//    public void setUp() {
+//        dropDownPage = new DropDownPage();
+//        // Opened BeforeMethod from here
+//    }
+//    @AfterMethod
+//    public void tearDown(){
+//        tearDownBase();
+//    }
 
     @Test
     public void dropdownSelect() {
+        dropDownPage = new DropDownPage();
         dropDownPage.selectValue("Option 1");
         assertEquals(dropDownPage.getSelectedValue(), "Option 1");
         dropDownPage.selectValue("Option 2");
@@ -25,9 +28,6 @@ public class DropdownTest extends BaseTest {
     }
 
 
-    @AfterMethod
-    public void tearDown(){
-        tearDownBase();
-    }
+
 
 }

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.logging.Logger;
 
-import static setup.DriverSetup.initDriver;
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/24/2018.
@@ -30,7 +30,7 @@ public class CommonWaits {
     public CommonWaits waitForElementIsVisible(WebElement webElement){
         logger.info("Waiting for Element to be visible " + webElement.toString());
         try {
-            new WebDriverWait(initDriver(), DEFAULT_TIMEOUT).until(ExpectedConditions.visibilityOf(webElement));
+            new WebDriverWait(getDriver(), DEFAULT_TIMEOUT).until(ExpectedConditions.visibilityOf(webElement));
             return this;
         }catch (WebDriverException e){
             throw new Error("Element was not visible " + webElement.toString());
@@ -38,7 +38,7 @@ public class CommonWaits {
     }
 
     public CommonWaits waitForElementIsVisible(By location){
-     return  waitForElementIsVisible(initDriver().findElement(location));
+     return  waitForElementIsVisible(getDriver().findElement(location));
     }
 
 
@@ -51,7 +51,7 @@ public class CommonWaits {
     public CommonWaits waitForElementIsClickable(WebElement webElement){
         logger.info("Waiting for Element to be clickable " + webElement.toString());
         try {
-            new WebDriverWait(initDriver(), DEFAULT_TIMEOUT).until(ExpectedConditions.elementToBeClickable(webElement));
+            new WebDriverWait(getDriver(), DEFAULT_TIMEOUT).until(ExpectedConditions.elementToBeClickable(webElement));
             return this;
         }catch (WebDriverException e){
             throw new Error("Element was not clickable " + webElement.toString());
@@ -60,9 +60,9 @@ public class CommonWaits {
 
     public CommonWaits waitForUrlChangedFrom(String oldUrl){
         logger.info("Waiting for url change from " + oldUrl);
-        new WebDriverWait(initDriver(), DEFAULT_TIMEOUT)
+        new WebDriverWait(getDriver(), DEFAULT_TIMEOUT)
                 .until((ExpectedCondition<Boolean>)driver -> {
-                String url = driver != null ? initDriver().getCurrentUrl(): null;
+                String url = driver != null ? getDriver().getCurrentUrl(): null;
                 return url.contains(oldUrl);
         });
             return this;

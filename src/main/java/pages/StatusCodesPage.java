@@ -45,13 +45,13 @@ public class StatusCodesPage extends BasePage {
     protected void load() {
 
     }
-//
-//    @Override
-//    protected void isLoaded() throws Error {
-//        CommonWaits.getWait().
-//                waitForElementIsVisible(statusCodeHeaderSelector)
-//                .waitForElementIsClickable(statusCodeHeaderSelector);
-//    }
+
+    @Override
+    protected void isLoaded() throws Error {
+        CommonWaits.getWait().
+                waitForElementIsVisible(statusCodeHeaderSelector)
+                .waitForElementIsClickable(statusCodeHeaderSelector);
+    }
 
     /**
      * This method get text of Header in Status Code

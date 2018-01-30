@@ -36,12 +36,12 @@ public class FileUploadPage extends BasePage {
 
     }
 
-//    @Override
-//    protected void isLoaded() throws Error {
-//        CommonWaits.getWait().
-//                waitForElementIsVisible(fileSubmitButton)
-//                .waitForElementIsClickable(fileSubmitButton);
-//    }
+    @Override
+    protected void isLoaded() throws Error {
+        CommonWaits.getWait().
+                waitForElementIsVisible(fileSubmitButton)
+                .waitForElementIsClickable(fileSubmitButton);
+    }
 
     @Override
     public String getUrl() {

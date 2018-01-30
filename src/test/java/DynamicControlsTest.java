@@ -1,5 +1,3 @@
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DynamicControlsPage;
 
@@ -11,8 +9,8 @@ import static org.testng.Assert.assertTrue;
  * Todo 2
  */
 public class DynamicControlsTest extends BaseTest {
-//    private DynamicControlsPage dynamicControlsPage;
-//
+    private DynamicControlsPage dynamicControlsPage;
+
 //    @BeforeMethod
 //    public void setUp(){
 //        dynamicControlsPage = new DynamicControlsPage();
@@ -23,16 +21,17 @@ public class DynamicControlsTest extends BaseTest {
 //        tearDownBase();
 //    }
 //
-//    @Test
-//    public void dynamicControlsTest(){
-//        dynamicControlsPage.checkTheCheckbox();
-//        dynamicControlsPage.clickOnAddRemoveButton();
+    @Test
+    public void dynamicControlsTest(){
+        dynamicControlsPage = new DynamicControlsPage();
+        dynamicControlsPage.checkTheCheckbox();
+        dynamicControlsPage.clickOnAddRemoveButton();
 //        assertTrue(dynamicControlsPage.isLoadingDisplayed());
-//        assertTrue(dynamicControlsPage.isNotLoadingDisplayed());
-//        assertEquals(dynamicControlsPage.getResultAfterLoading(), "It's gone!");
+        assertTrue(dynamicControlsPage.isNotLoadingDisplayed());
+        assertEquals(dynamicControlsPage.getResultAfterLoading(), "It's gone!");
 //        dynamicControlsPage.clickOnAddRemoveButton();
 //        assertTrue(dynamicControlsPage.isLoadingDisplayed());
 //        assertTrue(dynamicControlsPage.isNotLoadingDisplayed());
 //        assertEquals(dynamicControlsPage.getResultAfterLoading(), "It's back!");
-//    }
+    }
 }
