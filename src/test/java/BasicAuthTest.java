@@ -1,3 +1,4 @@
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.BasicAuthPage;
 
@@ -7,10 +8,10 @@ import pages.BasicAuthPage;
 public class BasicAuthTest extends BaseTest {
     private BasicAuthPage basicAuthPage;
 
-//    @BeforeMethod
-//    public void setUp(){
-//        basicAuthPage = new BasicAuthPage();
-//    }
+    @BeforeMethod
+    public void setUp(){
+        basicAuthPage = new BasicAuthPage();
+    }
 //    @AfterMethod
 //    public void tearDown(){
 //        tearDownBase();
@@ -18,7 +19,6 @@ public class BasicAuthTest extends BaseTest {
 
     @Test
     public void basicAuthPageTest(){
-        basicAuthPage = new BasicAuthPage();
         assert(basicAuthPage.getResult().contains("Congratulations! You must have the proper credentials."));
     }
 }

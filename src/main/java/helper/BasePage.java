@@ -73,7 +73,6 @@ public abstract class BasePage<T extends LoadableComponent<T>> extends LoadableC
     /** -------------------------------
      * Get ul Element for List
      * @param indexNumber
-     *  --Todo uzum em mi hat element tam, vor yndhanracvac lini
      * @return // add web element
      * and check element.findElements ()
      * OwnWebDriver element

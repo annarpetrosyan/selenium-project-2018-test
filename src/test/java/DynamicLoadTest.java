@@ -1,8 +1,4 @@
-import org.testng.annotations.Test;
 import pages.DynamicLoadPage;
-
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 /**
  * Created by anna.r.petrosyan on 1/13/2018.
@@ -19,16 +15,16 @@ public class DynamicLoadTest extends BaseTest{
 //    public void tearDown(){
 //        tearDownBase();
 //    }
-
-    @Test
-    public void dynamicLoad() {
-        dynamicLoadPage = new DynamicLoadPage();
-        dynamicLoadPage.clickOnStart();
-        assertTrue(dynamicLoadPage.isLoadingDisplayed());
-        assertTrue(dynamicLoadPage.isLoadingNotDisplayed());
-        assertTrue(dynamicLoadPage.isFinishDisplayed());
-        assertEquals(dynamicLoadPage.getFinish().getText(), "Hello World!");
-    }
+//
+//    @Test
+//    public void dynamicLoad() {
+//        dynamicLoadPage = new DynamicLoadPage();
+//        dynamicLoadPage.clickOnStart();
+//        assertTrue(dynamicLoadPage.isLoadingDisplayed());
+//        assertTrue(dynamicLoadPage.isLoadingNotDisplayed());
+//        assertTrue(dynamicLoadPage.isFinishDisplayed());
+//        assertEquals(dynamicLoadPage.getFinish().getText(), "Hello World!");
+//    }
 
 
 }

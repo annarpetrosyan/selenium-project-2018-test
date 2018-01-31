@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.Set;
 
-import static setup.DriverSetup.initDriver;
+import static setup.DriverSetup.getDriver;
 
 /**
  * Created by anna.r.petrosyan on 1/29/2018.
@@ -32,12 +32,12 @@ public class RedirectLinksPage  extends BasePage{
     }
 
     public void switchToWindowByIndex(int indexNumber){
-        Set<String> allHandles = initDriver().getWindowHandles();
+        Set<String> allHandles = getDriver().getWindowHandles();
         int windowsCount = allHandles.size()-1;
         for (int i=0; i < windowsCount; i++){
             if(i == indexNumber){
                 String handle =  allHandles.toArray()[i].toString();
-                initDriver().switchTo().window(handle);
+                getDriver().switchTo().window(handle);
             }
         }
     }
