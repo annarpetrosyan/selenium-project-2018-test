@@ -1,3 +1,4 @@
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DisappearingElementsPage;
 
@@ -9,10 +10,10 @@ import static org.testng.Assert.assertTrue;
 public class DisappearingElementsTest extends BaseTest {
     private DisappearingElementsPage disappearingElementsPage;
 
-//    @BeforeMethod
-//    public void setUp(){
-//        disappearingElementsPage = new DisappearingElementsPage();
-//    }
+    @BeforeMethod
+    public void setUp(){
+        disappearingElementsPage = new DisappearingElementsPage();
+    }
 //    @AfterMethod
 //    public void tearDown(){
 //        tearDownBase();
@@ -20,7 +21,6 @@ public class DisappearingElementsTest extends BaseTest {
 
     @Test
     public void setDisappearingElementsPageTest(){
-        disappearingElementsPage = new DisappearingElementsPage();
         disappearingElementsPage.getMenuWebElementByIndex(1); // indexNumber = 1 == Home, indexNumber = 2 == About, etc.
         assertTrue(disappearingElementsPage.getMenuWebElementByIndex(1).getText().equals("Home"), "Assertion Error!");
 //        assertFalse(disappearingElementsPage.isDisplayedLatestContentOfMenuGallery(),"Latest Menu item is missing");

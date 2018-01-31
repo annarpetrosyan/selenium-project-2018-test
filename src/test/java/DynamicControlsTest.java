@@ -1,3 +1,4 @@
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.DynamicControlsPage;
 
@@ -11,10 +12,10 @@ import static org.testng.Assert.assertTrue;
 public class DynamicControlsTest extends BaseTest {
     private DynamicControlsPage dynamicControlsPage;
 
-//    @BeforeMethod
-//    public void setUp(){
-//        dynamicControlsPage = new DynamicControlsPage();
-//    }
+    @BeforeMethod
+    public void setUp(){
+        dynamicControlsPage = new DynamicControlsPage();
+    }
 //
 //    @AfterMethod
 //    public void tearDown(){
@@ -23,7 +24,6 @@ public class DynamicControlsTest extends BaseTest {
 //
     @Test
     public void dynamicControlsTest(){
-        dynamicControlsPage = new DynamicControlsPage();
         dynamicControlsPage.checkTheCheckbox();
         dynamicControlsPage.clickOnAddRemoveButton();
 //        assertTrue(dynamicControlsPage.isLoadingDisplayed());

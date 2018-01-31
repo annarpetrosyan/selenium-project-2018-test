@@ -1,21 +1,24 @@
-public class AlertTest extends BaseTest {
-//    private AlertPage alertPage;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import pages.AlertPage;
 
-//    @BeforeMethod
-//    public void setUp() {
-//        alertPage = new AlertPage();
-//    }
+public class AlertTest extends BaseTest {
+    private AlertPage alertPage;
+
+    @BeforeMethod
+    public void setUp() {
+        alertPage = new AlertPage();
+    }
 //    @AfterMethod
 //    public void tearDown(){
 //        tearDownBase();
 ////    }
 //
-//    @Test
-//    public void createdAlertTest(){
-//        alertPage = new AlertPage();
-//        alertPage.createTempAlert("Text for 1st alert");
-//        alertPage.closeAlert();
-//    }
+    @Test
+    public void createdAlertTest(){
+        alertPage.createTempAlert("Text for 1st alert");
+        alertPage.closeAlert();
+    }
 ////
 //    @Test
 //    public void alertOfPageTest(){

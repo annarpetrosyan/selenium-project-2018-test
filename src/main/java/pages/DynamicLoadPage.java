@@ -3,8 +3,6 @@ package pages;
 import helper.BasePage;
 import helper.CommonVisibilityTypes;
 import helper.CommonWaits;
-import org.apache.commons.logging.Log;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,7 +11,6 @@ import org.openqa.selenium.support.FindBy;
  * Todo 1
  */
 public class DynamicLoadPage extends BasePage {
-    Logger logger = Logger.getLogger(Log.class.getName());
     @FindBy(css = "#start button")
     private WebElement startButton;
 
@@ -88,9 +85,9 @@ public class DynamicLoadPage extends BasePage {
 
 
 
-    public WebElement getFinish(){
+    public String getFinish(){
         logger.info("Return finish webElement?");
-        return finishSelector;
+        return finishSelector.getText();
     }
 
 }

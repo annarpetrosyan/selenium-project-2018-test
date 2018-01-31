@@ -1,12 +1,10 @@
-import pages.DynamicLoadPage;
-
 /**
  * Created by anna.r.petrosyan on 1/13/2018.
  */
 public class DynamicLoadTest extends BaseTest{
 
-    private DynamicLoadPage dynamicLoadPage;
-
+//    private DynamicLoadPage dynamicLoadPage;
+//
 //    @BeforeMethod
 //    public void setUp(){
 //        dynamicLoadPage = new DynamicLoadPage();
@@ -20,11 +18,12 @@ public class DynamicLoadTest extends BaseTest{
 //    public void dynamicLoad() {
 //        dynamicLoadPage = new DynamicLoadPage();
 //        dynamicLoadPage.clickOnStart();
-//        assertTrue(dynamicLoadPage.isLoadingDisplayed());
-//        assertTrue(dynamicLoadPage.isLoadingNotDisplayed());
-//        assertTrue(dynamicLoadPage.isFinishDisplayed());
-//        assertEquals(dynamicLoadPage.getFinish().getText(), "Hello World!");
+////        assertTrue(dynamicLoadPage.isLoadingDisplayed());
+////        assertTrue(dynamicLoadPage.isFinishDisplayed());
+//        assertEquals(dynamicLoadPage.getFinish(), "Hello World!");
 //    }
+
+
 
 
 }
