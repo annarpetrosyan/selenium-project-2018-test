@@ -23,7 +23,7 @@ public class DriverSetup {
                     String chromeDriverLocation = System.getProperty("selenium.chromedriver",
                             "C:\\Windows\\chromedriver.exe");
                     System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
-                    if (Boolean.valueOf(System.getProperty("selenium.remote", "true"))) {
+                    if (Boolean.valueOf(System.getProperty("selenium.remote", "false"))) {
                         initRemoteDriver(DesiredCapabilities.chrome());
                     } else {
                         driverThread.set(new ChromeDriver());
